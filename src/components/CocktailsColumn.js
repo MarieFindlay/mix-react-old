@@ -5,10 +5,11 @@ import CocktailsList from "./CocktailsList";
 import PreviousNextButton from "./PreviousNextButton";
 
 const CocktailsColumn = props => {
+  const cocktails = props.cocktails;
   return (
     <div>
       <SearchInput />
-      <CocktailsList />
+      <CocktailsList cocktails={cocktails} />
       <PreviousNextButton />
     </div>
   );

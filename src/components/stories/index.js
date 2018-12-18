@@ -30,6 +30,9 @@ import ShoppingList from "../ShoppingList";
 import ShoppingListItem from "../ShoppingListItem";
 import ClearShoppingListButton from "../ClearShoppingListButton";
 
+import cocktails from "../../cocktails";
+import shoppingList from "../../shoppingList";
+
 storiesOf("App", module).add("Standard", () => <App />);
 storiesOf("WelcomeScreen", module).add("Standard", () => <WelcomeScreen />);
 storiesOf("MainScreen", module).add("Standard", () => <MainScreen />);
@@ -37,15 +40,21 @@ storiesOf("NavBar", module).add("Standard", () => <NavBar />);
 storiesOf("MainContentContainer", module).add("Standard", () => (
   <MainContentContainer />
 ));
-storiesOf("CocktailsScreen", module).add("Standard", () => <CocktailsScreen />);
+storiesOf("CocktailsScreen", module).add("Standard", () => (
+  <CocktailsScreen cocktails={cocktails} />
+));
 storiesOf("ShoppingListScreen", module).add("Standard", () => (
   <ShoppingListScreen />
 ));
-storiesOf("CocktailsColumn", module).add("Standard", () => <CocktailsColumn />);
+storiesOf("CocktailsColumn", module).add("Standard", () => (
+  <CocktailsColumn cocktails={cocktails} />
+));
 storiesOf("SearchInput", module).add("Standard", () => <SearchInput />);
-storiesOf("CocktailsList", module).add("Standard", () => <CocktailsList />);
+storiesOf("CocktailsList", module).add("Standard", () => (
+  <CocktailsList cocktails={cocktails} />
+));
 storiesOf("CocktailListItem", module).add("Standard", () => (
-  <CocktailListItem />
+  <CocktailListItem cocktail={cocktails[0]} />
 ));
 storiesOf("PreviousNextButton", module).add("Standard", () => (
   <PreviousNextButton />

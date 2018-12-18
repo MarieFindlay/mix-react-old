@@ -4,10 +4,11 @@ import CocktailsColumn from "./CocktailsColumn";
 import CocktailDetails from "./CocktailDetails";
 
 const CocktailsScreen = props => {
+  const cocktails = props.cocktails;
   return (
     <div>
-      <CocktailsColumn />
-      <CocktailDetails />
+      <CocktailsColumn cocktails={cocktails} />
+      <CocktailDetails selectedCocktail={cocktails[0]} />
     </div>
   );
 };
