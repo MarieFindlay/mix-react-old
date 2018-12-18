@@ -1,7 +1,8 @@
 import React from "react";
 
 const InstructionListItem = props => {
-  return <div />;
+  const instruction = props.instruction;
+  return <li>{instruction}</li>;
 };
 
 export default InstructionListItem;

@@ -6,8 +6,7 @@ import MainContentContainer from "./MainContentContainer";
 const MainScreen = props => {
   return (
     <div>
-      <NavBar />
-      <MainContentContainer />
+      <MainContentContainer cocktailsScreenSelected={true} />
     </div>
   );
 };

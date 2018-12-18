@@ -7,12 +7,10 @@ import cocktails from "../cocktails.js";
 import shoppingList from "../shoppingList.js";
 
 const MainContentContainer = props => {
-  return (
-    <div>
-      <CocktailsScreen cocktails={cocktails} />
-      <ShoppingListScreen shoppingList={shoppingList} />
-    </div>
-  );
+  if (props.cocktailsScreenSelected) {
+    return <CocktailsScreen cocktails={cocktails} />;
+  }
+  return <ShoppingListScreen shoppingList={shoppingList} />;
 };
 
 export default MainContentContainer;

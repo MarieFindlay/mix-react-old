@@ -1,10 +1,11 @@
 import React from "react";
+import "./WelcomeScreen.scss";
 
 const WelcomeScreen = props => {
   return (
-    <div>
+    <div className="WelcomeScreenContainer">
       <h1>MIX</h1>
-      <h4>COCKTAIL CALCULATOR</h4>
+      <h2>COCKTAIL CALCULATOR</h2>
       <button>PICK YOUR POISON</button>
     </div>
   );

@@ -4,12 +4,11 @@ import EmptyShoppingList from "./EmptyShoppingList";
 import ShoppingListContainerWithCocktails from "./ShoppingListContainerWithCocktails";
 
 const ShoppingListScreen = props => {
-  return (
-    <div>
-      <EmptyShoppingList />
-      <ShoppingListContainerWithCocktails />
-    </div>
-  );
+  const shoppingList = props.shoppingList;
+  if (shoppingList) {
+    return <ShoppingListContainerWithCocktails shoppingList={shoppingList} />;
+  }
+  return <EmptyShoppingList />;
 };
 
 export default ShoppingListScreen;

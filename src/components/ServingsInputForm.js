@@ -5,10 +5,10 @@ import ServingsFormSubmitButton from "./ServingsFormSubmitButton";
 
 const ServingsInputForm = props => {
   return (
-    <div>
+    <form>
       <ServingsInputField />
       <ServingsFormSubmitButton />
-    </div>
+    </form>
   );
 };
 

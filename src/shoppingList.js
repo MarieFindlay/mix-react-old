@@ -1,16 +1,16 @@
 export default [
   {
-    ingredient: "Vodka",
+    name: "Vodka",
     amount: 100,
     unit: "ml"
   },
   {
-    ingredient: "Gin",
+    name: "Gin",
     amount: 200,
     unit: "ml"
   },
   {
-    ingredient: "Limes",
+    name: "Limes",
     amount: 3,
     unit: "slice"
   }

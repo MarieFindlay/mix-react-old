@@ -1,7 +1,7 @@
 import React from "react";
 
 const ServingsFormSubmitButton = props => {
-  return <div />;
+  return <button>Add to shopping list</button>;
 };
 
 export default ServingsFormSubmitButton;

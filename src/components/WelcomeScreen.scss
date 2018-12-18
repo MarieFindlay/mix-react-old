@@ -1,0 +1,28 @@
+@import "./variables.scss";
+
+.WelcomeScreenContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.WelcomeScreenContainer h1 {
+  align-self: center;
+  color: $lilac;
+  font-family: $headerFont;
+  font-size: 15em;
+}
+
+.WelcomeScreenContainer h2 {
+  align-self: center;
+  color: $lilac;
+  font-family: $sansFont;
+  letter-spacing: 0.5em;
+}
+
+.WelcomeScreenContainer button {
+  align-self: center;
+  background-color: $yellow;
+  font-family: $sansFont;
+  font-size: 1em;
+  width: 33em;
+}

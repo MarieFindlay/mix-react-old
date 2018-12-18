@@ -33,18 +33,33 @@ import ClearShoppingListButton from "../ClearShoppingListButton";
 import cocktails from "../../cocktails";
 import shoppingList from "../../shoppingList";
 
-storiesOf("App", module).add("Standard", () => <App />);
+storiesOf("App", module).add("welcomeScreenOn", () => (
+  <App welcomeScreenIsOn={true} />
+));
+storiesOf("App", module).add("welcomeScreenOff", () => (
+  <App welcomeScreenIsOn={false} />
+));
 storiesOf("WelcomeScreen", module).add("Standard", () => <WelcomeScreen />);
 storiesOf("MainScreen", module).add("Standard", () => <MainScreen />);
 storiesOf("NavBar", module).add("Standard", () => <NavBar />);
-storiesOf("MainContentContainer", module).add("Standard", () => (
-  <MainContentContainer />
-));
+storiesOf("MainContentContainer", module)
+  .add("cocktailsScreenSelected", () => (
+    <MainContentContainer
+      cocktailsScreenSelected={true}
+      selectedCocktail={cocktails[0]}
+    />
+  ))
+  .add("shoppingListScreenSelected", () => (
+    <MainContentContainer cocktailsScreenSelected={false} />
+  ));
 storiesOf("CocktailsScreen", module).add("Standard", () => (
-  <CocktailsScreen cocktails={cocktails} />
+  <CocktailsScreen cocktails={cocktails} selectedCocktail={cocktails[0]} />
 ));
-storiesOf("ShoppingListScreen", module).add("Standard", () => (
+storiesOf("ShoppingListScreen", module).add("emptyShoppingList", () => (
   <ShoppingListScreen />
+));
+storiesOf("ShoppingListScreen", module).add("itemsInShoppingList", () => (
+  <ShoppingListScreen shoppingList={shoppingList} />
 ));
 storiesOf("CocktailsColumn", module).add("Standard", () => (
   <CocktailsColumn cocktails={cocktails} />
@@ -54,25 +69,33 @@ storiesOf("CocktailsList", module).add("Standard", () => (
   <CocktailsList cocktails={cocktails} />
 ));
 storiesOf("CocktailListItem", module).add("Standard", () => (
-  <CocktailListItem cocktail={cocktails[0]} />
+  <CocktailListItem selectedCocktail={cocktails[0]} />
 ));
 storiesOf("PreviousNextButton", module).add("Standard", () => (
   <PreviousNextButton />
 ));
-storiesOf("CocktailDetails", module).add("Standard", () => <CocktailDetails />);
+storiesOf("CocktailDetails", module)
+  .add("cocktailSelected", () => (
+    <CocktailDetails selectedCocktail={cocktails[0]} />
+  ))
+  .add("noCocktailSelected", () => <CocktailDetails selectedCocktail={null} />);
 storiesOf("NoCocktailSelectedScreen", module).add("Standard", () => (
   <NoCocktailSelectedScreen />
 ));
-storiesOf("CocktailIsSelectedScreen", module).add("Standard", () => (
-  <CocktailIsSelectedScreen />
+storiesOf("CocktailIsSelectedScreen", module).add("Example cocktail", () => (
+  <CocktailIsSelectedScreen selectedCocktail={cocktails[0]} />
 ));
-storiesOf("Instructions", module).add("Standard", () => <Instructions />);
-storiesOf("Ingredients", module).add("Standard", () => <Ingredients />);
+storiesOf("Instructions", module).add("Standard", () => (
+  <Instructions selectedCocktail={cocktails[0]} />
+));
+storiesOf("Ingredients", module).add("Standard", () => (
+  <Ingredients selectedCocktail={cocktails[0]} />
+));
 storiesOf("InstructionListItem", module).add("Standard", () => (
-  <InstructionListItem />
+  <InstructionListItem instruction={cocktails[0].instructions[0]} />
 ));
 storiesOf("IngredientListItem", module).add("Standard", () => (
-  <IngredientListItem />
+  <IngredientListItem ingredient={cocktails[0].ingredients[0]} />
 ));
 storiesOf("ServingsInputForm", module).add("Standard", () => (
   <ServingsInputForm />
@@ -87,11 +110,13 @@ storiesOf("EmptyShoppingList", module).add("Standard", () => (
   <EmptyShoppingList />
 ));
 storiesOf("ShoppingListContainerWithCocktails", module).add("Standard", () => (
-  <ShoppingListContainerWithCocktails />
+  <ShoppingListContainerWithCocktails shoppingList={shoppingList} />
 ));
-storiesOf("ShoppingList", module).add("Standard", () => <ShoppingList />);
+storiesOf("ShoppingList", module).add("Standard", () => (
+  <ShoppingList shoppingList={shoppingList} />
+));
 storiesOf("ShoppingListItem", module).add("Standard", () => (
-  <ShoppingListItem />
+  <ShoppingListItem item={shoppingList[0]} />
 ));
 storiesOf("ClearShoppingListButton", module).add("Standard", () => (
   <ClearShoppingListButton />

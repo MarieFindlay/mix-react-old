@@ -3,14 +3,14 @@ import React from "react";
 import NoCocktailSelectedScreen from "./NoCocktailSelectedScreen";
 import CocktailIsSelectedScreen from "./CocktailIsSelectedScreen";
 
+import "./CocktailDetails.scss";
+
 const CocktailDetails = props => {
   const selectedCocktail = props.selectedCocktail;
-  return (
-    <div>
-      <NoCocktailSelectedScreen />
-      <CocktailIsSelectedScreen selectedCocktail={selectedCocktail} />
-    </div>
-  );
+  if (selectedCocktail) {
+    return <CocktailIsSelectedScreen selectedCocktail={selectedCocktail} />;
+  }
+  return <NoCocktailSelectedScreen />;
 };
 
 export default CocktailDetails;

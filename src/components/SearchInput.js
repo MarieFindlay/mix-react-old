@@ -1,7 +1,7 @@
 import React from "react";
 
 const SearchInput = props => {
-  return <div />;
+  return <input type="text" placeholder="SEARCH" />;
 };
 
 export default SearchInput;
