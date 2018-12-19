@@ -1,0 +1,12 @@
+@import ".././variables.scss";
+
+.prevNextButtonContainer {
+  @include columnPadding;
+  width: 85%;
+}
+
+.prevNextButtonContainer button {
+  width: 50%;
+  background-color: $navy;
+  border: none;
+}

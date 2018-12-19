@@ -1,9 +1,40 @@
 @import url("https://fonts.googleapis.com/css?family=Comfortaa|Hind+Madurai|Monoton|News+Cycle|Open+Sans|Roboto|Slabo+27px|Nova+Mono");
+@import url("https://fonts.googleapis.com/css?family=Audiowide|Exo|Orbitron|Passion+One|Rajdhani:600|Righteous|Roboto+Mono|Source+Code+Pro|Teko|Titillium+Web|Viga|ZCOOL+QingKe+HuangYou");
 
 $orange: #ef473a;
 $yellow: #fff669;
 $navy: #12182d;
 $lilac: #f7eafb;
 
-$headerFont: "Monoton";
-$sansFont: "Hind Madurai";
+$headerFont: "Righteous";
+$sansFont: "Titillium Web";
+
+h1,
+h2,
+h3 {
+  font-family: $headerFont;
+}
+
+h2 {
+  letter-spacing: 1px;
+  word-spacing: 2px;
+}
+
+p,
+button,
+input,
+ul,
+li,
+tbody,
+tr,
+td {
+  font-family: $sansFont;
+}
+
+@mixin columnHeaderPadding {
+  padding: 30px 20px;
+}
+
+@mixin columnPadding {
+  padding: 20px;
+}

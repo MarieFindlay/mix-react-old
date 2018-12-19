@@ -1,1 +1,12 @@
-@import "./variables.scss";
+@import "./variables";
+
+.mainScreenContainer {
+  display: flex;
+  min-height: 900px;
+}
+
+.imgColumn {
+  width: 20%;
+  background-image: url("./cocktails1.jpg");
+  background-size: 600px;
+}

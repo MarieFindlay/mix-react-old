@@ -1,5 +1,9 @@
 import React from "react";
-import InstructionListItem from "./InstructionListItem";
+
+const InstructionListItem = props => {
+  const instruction = props.instruction;
+  return <li>{instruction}</li>;
+};
 
 const Instructions = props => {
   const selectedCocktail = props.selectedCocktail;
@@ -11,7 +15,7 @@ const Instructions = props => {
   return (
     <div>
       <h3>Instructions</h3>
-      <ul>{instructionsListItems}</ul>
+      <ol>{instructionsListItems}</ol>
     </div>
   );
 };

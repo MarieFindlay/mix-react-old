@@ -1,5 +1,9 @@
 @import "./variables.scss";
 
+* {
+  margin: 0;
+}
+
 .WelcomeScreenContainer {
   display: flex;
   flex-direction: column;
@@ -8,7 +12,6 @@
 .WelcomeScreenContainer h1 {
   align-self: center;
   color: $lilac;
-  font-family: $headerFont;
   font-size: 15em;
 }
 
@@ -22,7 +25,6 @@
 .WelcomeScreenContainer button {
   align-self: center;
   background-color: $yellow;
-  font-family: $sansFont;
   font-size: 1em;
   width: 33em;
 }

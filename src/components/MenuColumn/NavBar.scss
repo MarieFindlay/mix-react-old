@@ -1,0 +1,15 @@
+@import ".././variables.scss";
+
+* {
+  margin: 0;
+}
+
+.NavBarContainer {
+  @include columnHeaderPadding;
+}
+
+.NavBarContainer h2 {
+  font-size: 2em;
+  color: $lilac;
+  padding-bottom: 8px;
+}

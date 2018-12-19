@@ -1,7 +1,12 @@
 import React from "react";
 
-import ServingsInputField from "./ServingsInputField";
-import ServingsFormSubmitButton from "./ServingsFormSubmitButton";
+const ServingsInputField = props => {
+  return <input type="text" placeholder="Number of servings" />;
+};
+
+const ServingsFormSubmitButton = props => {
+  return <button>Add to shopping list</button>;
+};
 
 const ServingsInputForm = props => {
   return (

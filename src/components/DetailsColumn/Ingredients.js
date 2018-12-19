@@ -1,6 +1,14 @@
 import React from "react";
 
-import IngredientListItem from "./IngredientListItem";
+const IngredientListItem = props => {
+  const ingredient = props.ingredient;
+  return (
+    <tr>
+      <td>{ingredient.name}</td>
+      <td>{ingredient.amount + " " + ingredient.unit}</td>
+    </tr>
+  );
+};
 
 const Ingredients = props => {
   const selectedCocktail = props.selectedCocktail;
