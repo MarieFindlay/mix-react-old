@@ -12,24 +12,33 @@ class DetailsColumn extends React.Component {
       servingsValue: "",
       shoppingList: null
     };
-    this.handleServingsUpdate = this.handleServingsUpdate.bind(this);
-    this.handleServingsSubmit = this.handleServingsSubmit.bind(this);
   }
 
-  handleServingsUpdate(event) {
+  handleServingsUpdate = event => {
     this.setState({ servingsValue: event.target.value });
-  }
+  };
 
-  handleServingsSubmit(event) {
-    alert("User submitted: " + this.state.servingsValue);
+  handleServingsSubmit = event => {
+    if (this.state.shoppingList === null) {
+      const tempShoppingList = {
+        ingredients: [],
+        cocktails: []
+      };
+      this.props.selectedCocktail.ingredients.forEach(ingredient => {
+        tempShoppingList.ingredients.push({
+          name: ingredient.name,
+          amount: this.state.servingsValue * ingredient.amount,
+          unit: ingredient.unit
+        });
+      });
+      this.setState({ shoppingList: tempShoppingList });
+    }
     event.preventDefault();
-  }
+  };
 
   render() {
     const selectedCocktail = this.props.selectedCocktail;
     const columnView = this.props.columnView;
-
-    const addToShoppingList = (shoppingList, selectedCocktail) => {};
 
     if (columnView === 1) {
       return (
