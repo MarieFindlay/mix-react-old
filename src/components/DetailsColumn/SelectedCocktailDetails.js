@@ -8,7 +8,6 @@ import "./DetailsColumn.scss";
 
 const SelectedCocktailDetails = props => {
   const selectedCocktail = props.selectedCocktail;
-  console.log(props.servingsValue, props.handleServingsUpdate);
   if (selectedCocktail) {
     return (
       <div className="selectedCocktailContainer">

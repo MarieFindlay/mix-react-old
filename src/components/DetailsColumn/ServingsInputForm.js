@@ -3,7 +3,6 @@ import React from "react";
 import "./DetailsColumn.scss";
 
 const ServingsInputForm = props => {
-  console.log(props.servingsValue, props.handleServingsUpdate);
   return (
     <form className="servingsForm">
       <input
