@@ -1,12 +1,12 @@
 import React from "react";
 
-import "./PreviousNextButton.scss";
+import "./MenuColumn.scss";
 
 const PreviousNextButton = props => {
   return (
     <div className="prevNextButtonContainer">
-      <button>PREV</button>
-      <button>NEXT</button>
+      <button className="prevButton">PREV</button>
+      <button className="nextButton">NEXT</button>
     </div>
   );
 };

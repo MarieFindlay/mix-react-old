@@ -3,5 +3,98 @@
 .detailsColumn {
   background-color: $lilac;
   color: $navy;
+  padding-top: 6em;
   width: 50%;
+}
+
+.selectedCocktailContainer,
+.shoppingListContainer {
+  padding-left: 15%;
+  padding-right: 15%;
+}
+
+.selectedCocktailHeader,
+.shoppingListHeader {
+  font-size: 2em;
+}
+
+.ingredientsHeader,
+.instructionsHeader,
+.shoppingListCocktailsHeader,
+.shoppingListIngredientsHeader {
+  margin-bottom: 0.5em;
+}
+
+.shoppingListCocktailsHeader {
+  margin-top: 8em;
+}
+
+.ingredientsContainer,
+.cocktailsInShoppingList {
+  margin-bottom: 1.5em;
+}
+
+.cocktailsInShoppingList {
+  list-style-type: none;
+  padding-left: 0;
+  font-size: 1.1em;
+}
+
+.ingredientTableRow,
+.shoppingListIngredientTableRow {
+  line-height: 1.2em;
+  font-size: 1.1em;
+}
+
+.shoppingListIngredientItem {
+  padding-right: 4em;
+}
+
+.instructionsList li {
+  font-size: 1.1em;
+  margin-left: -1.5em;
+}
+
+.servingsForm {
+  margin-top: 5.2em;
+  margin-bottom: 1.5em;
+}
+
+.servingsInput {
+  font-size: 1.1em;
+  background-color: $lilac;
+  border: none;
+  border-bottom: grey 1px solid;
+  color: $navy;
+}
+
+.servingsSubmitButton,
+.clearShoppingListButton {
+  background-color: $lilac;
+  border: $navy 1px solid;
+  color: $navy;
+  font-size: 1.1em;
+  border-radius: 1em;
+  padding-left: 1em;
+  padding-right: 1em;
+}
+
+.servingsSubmitButton {
+  border-top-left-radius: 0.1em;
+  border-bottom-left-radius: 0.1em;
+  border-bottom-right-radius: 0.1em;
+  margin-left: 0.5em;
+}
+
+.clearShoppingListButton {
+  margin-top: 5em;
+  border-top-left-radius: 0.1em;
+}
+
+.noCocktailSelectedText,
+.shoppingListEmptyText {
+  font-size: 1.1em;
+  padding-left: 20%;
+  padding-right: 20%;
+  padding-top: 10.5em;
 }

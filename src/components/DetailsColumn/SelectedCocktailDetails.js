@@ -4,20 +4,31 @@ import Instructions from "./Instructions";
 import Ingredients from "./Ingredients";
 import ServingsInputForm from "./ServingsInputForm";
 
+import "./DetailsColumn.scss";
+
 const SelectedCocktailDetails = props => {
   const selectedCocktail = props.selectedCocktail;
+  console.log(props.servingsValue, props.handleServingsUpdate);
   if (selectedCocktail) {
     return (
       <div className="selectedCocktailContainer">
-        <h2>{selectedCocktail.name.toUpperCase()}</h2>
-        <ServingsInputForm />
-        <Ingredients selectedCocktail={selectedCocktail} />
-        <Instructions selectedCocktail={selectedCocktail} />
+        <h2 className="selectedCocktailHeader">
+          {selectedCocktail.name.toUpperCase()}
+        </h2>
+        <div className="selectedCocktailInnerContainer">
+          <ServingsInputForm
+            servingsValue={props.servingsValue}
+            handleServingsUpdate={props.handleServingsUpdate}
+            handleServingsSubmit={props.handleServingsSubmit}
+          />
+          <Ingredients selectedCocktail={selectedCocktail} />
+          <Instructions selectedCocktail={selectedCocktail} />
+        </div>
       </div>
     );
   }
   return (
-    <p>
+    <p className="noCocktailSelectedText">
       Select a cocktail to view its recipe and start adding ingredients to your
       shopping list!
     </p>

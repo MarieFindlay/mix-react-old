@@ -16,5 +16,10 @@ export default {
       unit: "slice"
     }
   ],
-  cocktails: ["Long Island Iced Tea"]
+  cocktails: [
+    {
+      name: "Long Island Iced Tea",
+      amount: 1
+    }
+  ]
 };

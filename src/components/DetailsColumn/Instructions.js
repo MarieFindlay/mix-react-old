@@ -1,5 +1,7 @@
 import React from "react";
 
+import "./DetailsColumn.scss";
+
 const InstructionListItem = props => {
   const instruction = props.instruction;
   return <li>{instruction}</li>;
@@ -13,9 +15,9 @@ const Instructions = props => {
     )
   );
   return (
-    <div>
-      <h3>Instructions</h3>
-      <ol>{instructionsListItems}</ol>
+    <div className="instructionsContainer">
+      <h3 className="instructionsHeader">Instructions</h3>
+      <ol className="instructionsList">{instructionsListItems}</ol>
     </div>
   );
 };

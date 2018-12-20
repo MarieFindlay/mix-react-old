@@ -3,8 +3,10 @@
 
 $orange: #ef473a;
 $yellow: #fff669;
-$navy: #12182d;
+$navy: #0e1122;
 $lilac: #f7eafb;
+$pink: #420c29;
+$mauve: #3e3546;
 
 $headerFont: "Righteous";
 $sansFont: "Titillium Web";
@@ -31,10 +33,18 @@ td {
   font-family: $sansFont;
 }
 
+input:focus,
+button:focus {
+  outline: none;
+}
+
 @mixin columnHeaderPadding {
-  padding: 30px 20px;
+  padding-top: 3em;
+  padding-left: 10%;
+  padding-right: 10%;
 }
 
 @mixin columnPadding {
-  padding: 20px;
+  padding-left: 10%;
+  padding-right: 10%;
 }

@@ -1,18 +1,24 @@
 import React from "react";
 
-const ServingsInputField = props => {
-  return <input type="text" placeholder="Number of servings" />;
-};
-
-const ServingsFormSubmitButton = props => {
-  return <button>Add to shopping list</button>;
-};
+import "./DetailsColumn.scss";
 
 const ServingsInputForm = props => {
+  console.log(props.servingsValue, props.handleServingsUpdate);
   return (
-    <form>
-      <ServingsInputField />
-      <ServingsFormSubmitButton />
+    <form className="servingsForm">
+      <input
+        className="servingsInput"
+        type="number"
+        placeholder="Servings"
+        value={props.servingsValue}
+        onChange={props.handleServingsUpdate}
+      />
+      <button
+        className="servingsSubmitButton"
+        onClick={props.handleServingsSubmit}
+      >
+        Add to shopping list
+      </button>
     </form>
   );
 };

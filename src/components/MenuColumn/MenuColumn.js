@@ -9,30 +9,49 @@ import "./MenuColumn.scss";
 
 const MenuColumn = props => {
   const cocktails = props.cocktails;
-  if (props.columnView === "chooseCocktails") {
+  if (props.columnView === 1) {
     return (
       <div className="cocktailsColumn">
-        <NavBar />
+        <NavBar
+          handleMenuOption1Click={props.handleMenuOption1Click}
+          handleMenuOption2Click={props.handleMenuOption2Click}
+          handleMenuOption3Click={props.handleMenuOption3Click}
+        />
         <SearchInput />
-        <CocktailsList cocktails={cocktails} />
+        <CocktailsList
+          cocktails={cocktails}
+          handleCocktailClick={props.handleCocktailClick}
+        />
         <PreviousNextButton />
       </div>
     );
-  } else if (props.columnView === "shoppingList") {
+  } else if (props.columnView === 2) {
     return (
       <div className="cocktailsColumn">
-        <NavBar />
+        <NavBar
+          handleMenuOption1Click={props.handleMenuOption1Click}
+          handleMenuOption2Click={props.handleMenuOption2Click}
+          handleMenuOption3Click={props.handleMenuOption3Click}
+        />
+      </div>
+    );
+  } else if (props.columnView === 3) {
+    return (
+      <div className="cocktailsColumn">
+        <NavBar
+          handleMenuOption1Click={props.handleMenuOption1Click}
+          handleMenuOption2Click={props.handleMenuOption2Click}
+          handleMenuOption3Click={props.handleMenuOption3Click}
+        />
+        <SearchInput />
+        <CocktailsList
+          cocktails={cocktails}
+          handleCocktailClick={props.handleCocktailClick}
+        />
+        <PreviousNextButton />
       </div>
     );
   }
-  return (
-    <div className="cocktailsColumn">
-      <NavBar />
-      <SearchInput />
-      <CocktailsList cocktails={cocktails} />
-      <PreviousNextButton />
-    </div>
-  );
 };
 
 export default MenuColumn;

@@ -1,5 +1,7 @@
 import React from "react";
 
+import "./DetailsColumn.scss";
+
 const CocktailsInShoppingListItem = props => {
   console.log(props.cocktail);
   return (

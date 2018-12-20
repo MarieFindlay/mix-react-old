@@ -1,8 +1,0 @@
-@import ".././variables.scss";
-
-.cocktailList {
-  color: $lilac;
-  list-style-type: none;
-  padding: 0;
-  @include columnPadding;
-}

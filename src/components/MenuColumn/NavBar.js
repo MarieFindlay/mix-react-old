@@ -1,13 +1,13 @@
 import React from "react";
 
-import "./NavBar.scss";
+import "./MenuColumn.scss";
 
 const NavBar = props => {
   return (
     <div className="NavBarContainer">
-      <h2>ALL COCKTAILS</h2>
-      <h2>SHOPPING LIST</h2>
-      <h2>MY COCKTAILS</h2>
+      <h2 onClick={props.handleMenuOption1Click}>ALL COCKTAILS</h2>
+      <h2 onClick={props.handleMenuOption2Click}>SHOPPING LIST</h2>
+      <h2 onClick={props.handleMenuOption3Click}>MY COCKTAILS</h2>
     </div>
   );
 };

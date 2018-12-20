@@ -3,7 +3,9 @@ import React from "react";
 const CocktailListItem = props => {
   return (
     <div>
-      <li>{props.cocktail.name}</li>
+      <li onClick={e => props.handleCocktailClick(props.cocktail)}>
+        {props.cocktail.name}
+      </li>
     </div>
   );
 };

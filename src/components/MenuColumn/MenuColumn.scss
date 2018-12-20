@@ -1,6 +1,67 @@
 @import ".././variables.scss";
 
+* {
+  margin: 0;
+}
+
 .cocktailsColumn {
-  width: 30%;
+  display: flex;
+  flex-direction: column;
   background-color: $navy;
+  width: 30%;
+}
+
+.NavBarContainer {
+  @include columnHeaderPadding;
+}
+
+.NavBarContainer h2 {
+  font-size: 2em;
+  color: $lilac;
+  padding-bottom: 8px;
+}
+
+.searchInput {
+  margin-left: 10%;
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+  width: 80%;
+  background-color: $navy;
+  border: none;
+  border-bottom: $lilac 1px solid;
+  color: $lilac;
+  font-size: 1.1em;
+}
+
+.cocktailList {
+  color: $lilac;
+  font-size: 1.1em;
+  line-height: 1.8em;
+  list-style-type: none;
+  margin-bottom: 2em;
+  padding: 0;
+  @include columnPadding;
+}
+
+.prevNextButtonContainer {
+  @include columnPadding;
+  margin-bottom: 2em;
+}
+
+.prevNextButtonContainer button {
+  background-color: $navy;
+  border: $lilac 1px solid;
+  color: $lilac;
+  font-size: 1.1em;
+  width: 50%;
+}
+
+.prevButton {
+  border-top-left-radius: 0.1em;
+  border-bottom-left-radius: 1em;
+}
+
+.nextButton {
+  border-top-right-radius: 0.1em;
+  border-bottom-right-radius: 1em;
 }
