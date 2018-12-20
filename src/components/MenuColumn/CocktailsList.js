@@ -9,7 +9,7 @@ const CocktailsList = props => {
     <CocktailListItem
       key={cocktail.name}
       cocktail={cocktail}
-      handleCocktailClick={props.handleCocktailClick}
+      onCocktailClick={props.onCocktailClick}
     />
   ));
   return <ul className="cocktailList">{listItems}</ul>;

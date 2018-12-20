@@ -35,21 +35,22 @@ class MainScreen extends React.Component {
 
   handleCocktailClick(cocktail) {
     this.setState({ selectedCocktail: cocktail });
-    console.log(this.state.selectedCocktail);
   }
 
   render() {
+    const menuCocktails =
+      this.state.columnView === 1 ? cocktails : cocktails.slice(0, 4);
     return (
       <div className="mainScreenContainer">
         <div className="imgColumn" />
         <MenuColumn
-          cocktails={cocktails}
+          cocktails={menuCocktails}
           columnView={this.state.columnView}
           selectedCocktail={this.selectedCocktail}
-          handleMenuOption1Click={this.handleMenuOption1Click}
-          handleMenuOption2Click={this.handleMenuOption2Click}
-          handleMenuOption3Click={this.handleMenuOption3Click}
-          handleCocktailClick={this.handleCocktailClick}
+          onMenuOption1Click={this.handleMenuOption1Click}
+          onMenuOption2Click={this.handleMenuOption2Click}
+          onMenuOption3Click={this.handleMenuOption3Click}
+          onCocktailClick={this.handleCocktailClick}
         />
         <DetailsColumn
           columnView={this.state.columnView}
