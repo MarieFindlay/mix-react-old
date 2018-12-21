@@ -1,23 +1,22 @@
 import React from "react";
 import "./MenuColumn.scss";
 
-const CocktailsList = props => {
-  const cocktails = props.cocktails;
+const CocktailsList = ({ cocktails, onCocktailClick }) => {
   const listItems = cocktails.map(cocktail => (
     <CocktailListItem
       key={cocktail.name}
       cocktail={cocktail}
-      onCocktailClick={props.onCocktailClick}
+      onCocktailClick={onCocktailClick}
     />
   ));
   return <ul className="cocktailList">{listItems}</ul>;
 };
 
-const CocktailListItem = props => {
+const CocktailListItem = ({ cocktail, onCocktailClick }) => {
   return (
     <div>
-      <li onClick={e => props.onCocktailClick(props.cocktail)}>
-        {props.cocktail.name}
+      <li className="cocktailListItem" onClick={e => onCocktailClick(cocktail)}>
+        {cocktail.name}
       </li>
     </div>
   );

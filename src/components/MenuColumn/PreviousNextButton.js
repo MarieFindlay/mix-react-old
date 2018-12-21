@@ -2,7 +2,7 @@ import React from "react";
 
 import "./MenuColumn.scss";
 
-const PreviousNextButton = props => {
+const PreviousNextButton = () => {
   return (
     <div className="prevNextButtonContainer">
       <button className="prevButton">PREV</button>

@@ -6,8 +6,12 @@ import ServingsInputForm from "./ServingsInputForm";
 
 import "./DetailsColumn.scss";
 
-const SelectedCocktailDetails = props => {
-  const selectedCocktail = props.selectedCocktail;
+const SelectedCocktailDetails = ({
+  selectedCocktail,
+  servingsValue,
+  onServingsUpdate,
+  onServingsSubmit
+}) => {
   if (selectedCocktail) {
     return (
       <div className="selectedCocktailContainer">
@@ -16,9 +20,9 @@ const SelectedCocktailDetails = props => {
         </h2>
         <div className="selectedCocktailInnerContainer">
           <ServingsInputForm
-            servingsValue={props.servingsValue}
-            handleServingsUpdate={props.handleServingsUpdate}
-            handleServingsSubmit={props.handleServingsSubmit}
+            servingsValue={servingsValue}
+            onServingsUpdate={onServingsUpdate}
+            onServingsSubmit={onServingsSubmit}
           />
           <Ingredients
             ingredients={selectedCocktail.ingredients}

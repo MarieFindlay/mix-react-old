@@ -2,7 +2,7 @@ import React from "react";
 
 import "./MenuColumn.scss";
 
-const SearchInput = props => {
+const SearchInput = () => {
   return <input className="searchInput" type="text" placeholder="Search" />;
 };
 

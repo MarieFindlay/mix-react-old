@@ -2,20 +2,21 @@ import React from "react";
 
 import "./DetailsColumn.scss";
 
-const ServingsInputForm = props => {
+const ServingsInputForm = ({
+  servingsValue,
+  onServingsUpdate,
+  onServingsSubmit
+}) => {
   return (
     <form className="servingsForm">
       <input
         className="servingsInput"
         type="number"
         placeholder="Servings"
-        value={props.servingsValue}
-        onChange={props.handleServingsUpdate}
+        value={servingsValue}
+        onChange={onServingsUpdate}
       />
-      <button
-        className="servingsSubmitButton"
-        onClick={props.handleServingsSubmit}
-      >
+      <button className="servingsSubmitButton" onClick={onServingsSubmit}>
         Add to shopping list
       </button>
     </form>

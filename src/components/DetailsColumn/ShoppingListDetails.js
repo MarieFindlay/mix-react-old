@@ -6,8 +6,7 @@ import Ingredients from "./Ingredients";
 
 import "./DetailsColumn.scss";
 
-const ShoppingListDetails = props => {
-  const shoppingList = props.shoppingList;
+const ShoppingListDetails = ({ shoppingList }) => {
   if (shoppingList) {
     return (
       <div className="shoppingListContainer">

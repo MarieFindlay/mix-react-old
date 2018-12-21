@@ -2,13 +2,13 @@ import React from "react";
 
 import "./DetailsColumn.scss";
 
-const Ingredients = props => {
-  const ingredientsListItems = props.ingredients.map((ingredient, index) => (
+const Ingredients = ({ ingredients, header }) => {
+  const ingredientsListItems = ingredients.map((ingredient, index) => (
     <IngredientListItem key={index} ingredient={ingredient} />
   ));
   return (
     <div className="ingredientsContainer">
-      <h3 className="ingredientsHeader">{props.header}</h3>
+      <h3 className="ingredientsHeader">{header}</h3>
       <table>
         <tbody>{ingredientsListItems}</tbody>
       </table>
@@ -16,8 +16,7 @@ const Ingredients = props => {
   );
 };
 
-const IngredientListItem = props => {
-  const ingredient = props.ingredient;
+const IngredientListItem = ({ ingredient }) => {
   return (
     <tr className="ingredientTableRow">
       <td className="ingredientTableData">{ingredient.name}</td>

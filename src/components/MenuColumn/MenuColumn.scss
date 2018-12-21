@@ -19,6 +19,7 @@
   font-size: 2em;
   color: $lilac;
   padding-bottom: 8px;
+  cursor: pointer;
 }
 
 .searchInput {
@@ -41,6 +42,10 @@
   margin-bottom: 2em;
   padding: 0;
   @include columnPadding;
+}
+
+.cocktailListItem {
+  cursor: pointer;
 }
 
 .prevNextButtonContainer {
