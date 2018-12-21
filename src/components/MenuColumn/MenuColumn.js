@@ -8,8 +8,6 @@ import PreviousNextButton from "./PreviousNextButton";
 import "./MenuColumn.scss";
 
 const MenuColumn = props => {
-  const cocktails = props.cocktails;
-
   return (
     <div className="cocktailsColumn">
       <NavBar
@@ -21,7 +19,7 @@ const MenuColumn = props => {
         <>
           <SearchInput />
           <CocktailsList
-            cocktails={cocktails}
+            cocktails={props.cocktails}
             onCocktailClick={props.onCocktailClick}
           />
           <PreviousNextButton />

@@ -1,8 +1,8 @@
 import React from "react";
 
 import CocktailsInShoppingList from "./CocktailsInShoppingList";
-import InrgedientsInShoppingList from "./IngredientsInShoppingList";
 import ClearShoppingListButton from "./ClearShoppingListButton";
+import Ingredients from "./Ingredients";
 
 import "./DetailsColumn.scss";
 
@@ -15,8 +15,10 @@ const ShoppingListDetails = props => {
         <div className="shoppingListInnerContainer">
           <h3 className="shoppingListCocktailsHeader">TO MAKE</h3>
           <CocktailsInShoppingList shoppingList={shoppingList} />
-          <h3 className="shoppingListIngredientsHeader">YOU NEED</h3>
-          <InrgedientsInShoppingList shoppingList={shoppingList} />
+          <Ingredients
+            ingredients={shoppingList.ingredients}
+            header={"YOU NEED"}
+          />
           <ClearShoppingListButton />
         </div>
       </div>

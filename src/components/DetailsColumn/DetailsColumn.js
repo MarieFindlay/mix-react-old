@@ -39,28 +39,18 @@ class DetailsColumn extends React.Component {
   render() {
     const selectedCocktail = this.props.selectedCocktail;
     const columnView = this.props.columnView;
-
-    if (columnView === 1) {
-      return (
-        <div className="detailsColumn">
-          <SelectedCocktailDetails
-            selectedCocktail={selectedCocktail}
-            servingsValue={this.state.servingsValue}
-            handleServingsUpdate={this.handleServingsUpdate}
-            handleServingsSubmit={this.handleServingsSubmit}
-          />
-        </div>
-      );
-    } else if (columnView === 2) {
-      return (
-        <div className="detailsColumn">
-          <ShoppingListDetails shoppingList={this.props.shoppingList} />
-        </div>
-      );
-    }
-    return (
+    return columnView === 2 ? (
       <div className="detailsColumn">
-        <SelectedCocktailDetails selectedCocktail={selectedCocktail} />
+        <ShoppingListDetails shoppingList={this.state.shoppingList} />
+      </div>
+    ) : (
+      <div className="detailsColumn">
+        <SelectedCocktailDetails
+          selectedCocktail={selectedCocktail}
+          servingsValue={this.state.servingsValue}
+          handleServingsUpdate={this.handleServingsUpdate}
+          handleServingsSubmit={this.handleServingsSubmit}
+        />
       </div>
     );
   }

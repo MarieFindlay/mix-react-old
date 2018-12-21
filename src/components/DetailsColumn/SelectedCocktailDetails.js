@@ -20,7 +20,10 @@ const SelectedCocktailDetails = props => {
             handleServingsUpdate={props.handleServingsUpdate}
             handleServingsSubmit={props.handleServingsSubmit}
           />
-          <Ingredients selectedCocktail={selectedCocktail} />
+          <Ingredients
+            ingredients={selectedCocktail.ingredients}
+            header={"Ingredients"}
+          />
           <Instructions selectedCocktail={selectedCocktail} />
         </div>
       </div>
