@@ -17,7 +17,7 @@ const ServingsInputForm = ({
         onChange={onServingsUpdate}
       />
       <button className="servingsSubmitButton" onClick={onServingsSubmit}>
-        Add to shopping list
+        + ADD
       </button>
     </form>
   );

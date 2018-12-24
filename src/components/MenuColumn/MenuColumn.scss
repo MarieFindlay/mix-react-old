@@ -2,6 +2,7 @@
 
 * {
   margin: 0;
+  user-select: none;
 }
 
 .cocktailsColumn {
@@ -34,6 +35,10 @@
   font-size: 1.1em;
 }
 
+.searchInput ::placeholder {
+  color: $lilac;
+}
+
 .cocktailList {
   color: $lilac;
   font-size: 1.1em;
@@ -55,18 +60,13 @@
 
 .prevNextButtonContainer button {
   background-color: $navy;
-  border: $lilac 1px solid;
+  border: $lightNavy 1px solid;
+  border-radius: 0.1em;
   color: $lilac;
   font-size: 1.1em;
+  padding-top: 0.3em;
+  padding-bottom: 0.3em;
   width: 50%;
-}
-
-.prevButton {
-  border-top-left-radius: 0.1em;
-  border-bottom-left-radius: 1em;
-}
-
-.nextButton {
-  border-top-right-radius: 0.1em;
-  border-bottom-right-radius: 1em;
+  box-shadow: 0.03em 0.03em 0.05em $lightNavy;
+  cursor: pointer;
 }

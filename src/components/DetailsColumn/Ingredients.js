@@ -19,7 +19,7 @@ const Ingredients = ({ ingredients, header }) => {
 const IngredientListItem = ({ ingredient }) => {
   return (
     <tr className="ingredientTableRow">
-      <td className="ingredientTableData">{ingredient.name}</td>
+      <td className="ingredientNameData">{ingredient.name}</td>
       <td className="ingredientTableData">
         {ingredient.amount + " " + ingredient.unit}
       </td>

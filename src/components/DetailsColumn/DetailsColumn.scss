@@ -1,5 +1,9 @@
 @import ".././variables.scss";
 
+* {
+  user-select: none;
+}
+
 .detailsColumn {
   background-color: $lilac;
   color: $navy;
@@ -26,7 +30,7 @@
 }
 
 .shoppingListCocktailsHeader {
-  margin-top: 5.2em;
+  margin-top: 5em;
 }
 
 .ingredientsContainer,
@@ -40,23 +44,22 @@
   font-size: 1.1em;
 }
 
-.ingredientTableRow,
-.shoppingListIngredientTableRow {
+.ingredientTableRow {
   line-height: 1.2em;
   font-size: 1.1em;
 }
 
-.shoppingListIngredientItem {
-  padding-right: 4em;
+.ingredientNameData {
+  width: 11em;
 }
 
 .instructionsList li {
   font-size: 1.1em;
-  margin-left: -1.5em;
+  margin-left: -1.3em;
 }
 
 .servingsForm {
-  margin-top: 5.2em;
+  margin-top: 4.6em;
   margin-bottom: 1.5em;
 }
 
@@ -64,25 +67,31 @@
   font-size: 1.1em;
   background-color: $lilac;
   border: none;
-  border-bottom: grey 1px solid;
+  border-bottom: $darkLilac 1px solid;
   color: $navy;
+  padding-bottom: 0.3em;
+  margin-right: 1em;
 }
 
 .servingsSubmitButton,
 .clearShoppingListButton {
-  background-color: $lilac;
-  border: $navy 1px solid;
+  background-color: $darkLilac;
+  border: none;
   color: $navy;
   font-size: 1.1em;
-  border-radius: 1em;
   padding-left: 1em;
   padding-right: 1em;
+  padding-top: 0.3em;
+  padding-bottom: 0.3em;
+  box-shadow: 0.05em 0.05em 0.2em $darkLilac;
+  cursor: pointer;
 }
 
 .servingsSubmitButton {
   border-top-left-radius: 0.1em;
   border-bottom-left-radius: 0.1em;
   border-bottom-right-radius: 0.1em;
+  border-top-right-radius: 0.1em;
   margin-left: 0.5em;
 }
 

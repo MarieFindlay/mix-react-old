@@ -2,8 +2,15 @@ import React from "react";
 
 import "./MenuColumn.scss";
 
-const SearchInput = () => {
-  return <input className="searchInput" type="text" placeholder="Search" />;
+const SearchInput = props => {
+  return (
+    <input
+      onChange={props.onSearchUpdate}
+      className="searchInput"
+      type="text"
+      placeholder="Search"
+    />
+  );
 };
 
 export default SearchInput;

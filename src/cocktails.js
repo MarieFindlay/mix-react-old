@@ -34,7 +34,7 @@ export default [
       }
     ],
     instructions: [
-      "Mix all contents in a highball glass and sitr gently",
+      "Mix all contents in a highball glass and stir gently",
       "Add dash of Coca-Cola for the coloring",
       "Garnish with lemon or lime twist"
     ]
@@ -53,7 +53,7 @@ export default [
         unit: "lime"
       },
       {
-        name: "granulated sugar",
+        name: "Granulated sugar",
         amount: 1,
         unit: "tsp"
       }
@@ -61,7 +61,7 @@ export default [
     instructions: [
       "Pour all ingredients into shaker with ice cubes",
       "Shake well",
-      "Strain in chilled cocktail glass"
+      "Strain into chilled cocktail glass"
     ]
   },
   {
@@ -124,11 +124,11 @@ export default [
       }
     ],
     instructions: [
-      "Place sugar cube in old fashioned glass and saturate with bitters",
+      "Place sugar cube in an old fashioned glass and saturate with bitters",
       "Add a dash of plain water",
-      "Muddle until dissolved",
+      "Mix until dissolved",
       "Fill the glass with ice cubes and add whiskey",
-      "Garnish with orange twist, and a cocktail cherry"
+      "Garnish with orange twist and a cocktail cherry"
     ]
   },
   {
@@ -166,7 +166,7 @@ export default [
         unit: "lemon"
       },
       {
-        name: "granulated sugar",
+        name: "Granulated sugar",
         amount: 0.5,
         unit: "tsp"
       },
@@ -298,7 +298,7 @@ export default [
         unit: "lime"
       },
       {
-        name: "granulated sugar",
+        name: "Granulated sugar",
         amount: 2,
         unit: "tsp"
       },
@@ -355,7 +355,7 @@ export default [
         unit: "tsp"
       },
       {
-        name: "granulated sugar",
+        name: "Granulated sugar",
         amount: 1,
         unit: "tsp"
       },
@@ -381,9 +381,9 @@ export default [
       }
     ],
     instructions: [
-      "Rinse a chilled old-fashioned glass with the absinthe, add crushed ice, and set it aside",
+      "Rinse a chilled old-fashioned glass with the absinthe, add crushed ice and set aside",
       "Stir the remaining ingredients over ice and set it aside",
-      "Discard the ice and any excess absinthe from the prepared glass, and strain the drink into the glass",
+      "Discard the ice and any excess absinthe from the prepared glass and strain the drink into the glass",
       "Add the lemon peel for garnish"
     ]
   },
@@ -423,7 +423,7 @@ export default [
     ],
     instructions: [
       "Stirring gently, pour all ingredients into highball glass",
-      "Garnish"
+      "Garnish with the lime slice"
     ]
   },
   {
@@ -456,7 +456,7 @@ export default [
       }
     ],
     instructions: [
-      "Shake blended Scotch, lemon juice, honey syrup and ginger syrup with ice",
+      "Shake blended scotch, lemon juice, honey syrup and ginger syrup with ice",
       "Strain over large ice in chilled rocks glass",
       "Float smoky Scotch on top (be sure to use a smoky Scotch such as an Islay single malt)",
       "Garnish with candied ginger"
@@ -476,7 +476,7 @@ export default [
         unit: "lemon"
       },
       {
-        name: "granulated sugar",
+        name: "Granulated sugar",
         amount: 1,
         unit: "tsp"
       },
@@ -511,12 +511,12 @@ export default [
         unit: "oz"
       },
       {
-        name: "sweet and sour",
+        name: "Sweet and sour",
         amount: 1.5,
         unit: "oz"
       },
       {
-        name: "cherry",
+        name: "Cherry",
         amount: 1,
         unit: "cherry"
       }
