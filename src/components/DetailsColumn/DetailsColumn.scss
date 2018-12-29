@@ -85,6 +85,10 @@
   padding-bottom: 0.3em;
   box-shadow: 0.05em 0.05em 0.2em $darkLilac;
   cursor: pointer;
+  transition: transform 5ms;
+  &:hover {
+    transform: scale(1.04);
+  }
 }
 
 .servingsSubmitButton {

@@ -19,6 +19,7 @@ class MenuColumn extends React.Component {
           onMenuOption1Click={this.props.onMenuOption1Click}
           onMenuOption2Click={this.props.onMenuOption2Click}
           onMenuOption3Click={this.props.onMenuOption3Click}
+          columnView={this.props.columnView}
         />
         {(this.props.columnView === 1 || this.props.columnView === 3) && (
           <>
@@ -26,8 +27,14 @@ class MenuColumn extends React.Component {
             <CocktailsList
               cocktails={this.props.cocktails}
               onCocktailClick={this.props.onCocktailClick}
+              selectedCocktail={this.props.selectedCocktail}
             />
-            <PreviousNextButton />
+            <PreviousNextButton
+              onNextButtonClick={this.props.onNextButtonClick}
+              onPrevButtonClick={this.props.onPrevButtonClick}
+              currentPage={this.props.currentPage}
+              numberOfPages={this.props.numberOfPages}
+            />
           </>
         )}
       </div>

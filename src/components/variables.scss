@@ -2,13 +2,16 @@
 @import url("https://fonts.googleapis.com/css?family=Audiowide|Exo|Orbitron|Passion+One|Rajdhani:600|Righteous|Roboto+Mono|Source+Code+Pro|Teko|Titillium+Web|Viga|ZCOOL+QingKe+HuangYou");
 
 $orange: #ef473a;
-$yellow: #fff669;
+$yellow: #d5c285;
 $navy: #0e1122;
 $lilac: #f7eafb;
 $pink: #420c29;
-$mauve: #3e3546;
+$mauve: #a494af;
 $darkLilac: #cab6de;
 $lightNavy: #292d40;
+$beige: #c88c7c;
+$darkerLilac: #b093cc;
+$lime: #c7c84f;
 
 $headerFont: "Righteous";
 $sansFont: "Titillium Web";
@@ -42,11 +45,11 @@ button:focus {
 
 @mixin columnHeaderPadding {
   padding-top: 3em;
-  padding-left: 10%;
-  padding-right: 10%;
+  margin-left: 4.5%;
+  margin-right: 4.5%;
 }
 
 @mixin columnPadding {
-  padding-left: 10%;
-  padding-right: 10%;
+  margin-left: 4.5%;
+  margin-right: 4.5%;
 }

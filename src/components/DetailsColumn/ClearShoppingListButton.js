@@ -2,8 +2,12 @@ import React from "react";
 
 import "./DetailsColumn.scss";
 
-const ClearShoppingListButton = () => {
-  return <button className="clearShoppingListButton">CLEAR LIST</button>;
+const ClearShoppingListButton = ({ onClearShoppingList }) => {
+  return (
+    <button onClick={onClearShoppingList} className="clearShoppingListButton">
+      CLEAR LIST
+    </button>
+  );
 };
 
 export default ClearShoppingListButton;

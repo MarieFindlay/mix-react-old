@@ -11,11 +11,15 @@ const DetailsColumn = ({
   selectedCocktail,
   servingsValue,
   onServingsUpdate,
-  onServingsSubmit
+  onServingsSubmit,
+  onClearShoppingList
 }) => {
   return columnView === 2 ? (
     <div className="detailsColumn">
-      <ShoppingListDetails shoppingList={shoppingList} />
+      <ShoppingListDetails
+        shoppingList={shoppingList}
+        onClearShoppingList={onClearShoppingList}
+      />
     </div>
   ) : (
     <div className="detailsColumn">
@@ -24,6 +28,8 @@ const DetailsColumn = ({
         servingsValue={servingsValue}
         onServingsUpdate={onServingsUpdate}
         onServingsSubmit={onServingsSubmit}
+        columnView={columnView}
+        shoppingList={shoppingList}
       />
     </div>
   );

@@ -16,11 +16,28 @@
   @include columnHeaderPadding;
 }
 
-.NavBarContainer h2 {
+.navHeaderUnselected {
   font-size: 2em;
-  color: $lilac;
-  padding-bottom: 8px;
+  padding-left: 0.5em;
+  color: $darkLilac;
+  padding-bottom: 0.1em;
   cursor: pointer;
+  padding-top: 0.05em;
+}
+
+.navHeaderUnselected:hover,
+.cocktailListItemUnselected:hover {
+  background-color: $lightNavy;
+  border-radius: 0.1em;
+}
+
+.navHeaderSelected {
+  font-size: 2.05em;
+  color: $lilac;
+  padding-bottom: 0.1em;
+  cursor: mouse;
+  padding-left: 0.5em;
+  padding-top: 0.05em;
 }
 
 .searchInput {
@@ -40,8 +57,6 @@
 }
 
 .cocktailList {
-  color: $lilac;
-  font-size: 1.1em;
   line-height: 1.8em;
   list-style-type: none;
   margin-bottom: 2em;
@@ -49,12 +64,25 @@
   @include columnPadding;
 }
 
-.cocktailListItem {
+.cocktailListItemUnselected {
+  color: $darkLilac;
   cursor: pointer;
+  font-size: 1.1em;
+  padding-left: 1em;
+}
+
+.cocktailListItemSelected {
+  cursor: mouse;
+  color: $lilac;
+  font-size: 1.15em;
+  margin-top: -0.06em;
+  padding-left: 1em;
 }
 
 .prevNextButtonContainer {
   @include columnPadding;
+  padding-left: 1em;
+  padding-right: 1em;
   margin-bottom: 2em;
 }
 
@@ -68,5 +96,18 @@
   padding-bottom: 0.3em;
   width: 50%;
   box-shadow: 0.03em 0.03em 0.05em $lightNavy;
+  transition: transform 5ms ease-in-out;
   cursor: pointer;
+  &:hover {
+    transform: scale(1.04);
+  }
+  &:disabled {
+    border-color: gray 1px solid;
+    box-shadow: none;
+    color: $lightNavy;
+    cursor: mouse;
+    &:hover {
+      transform: none;
+    }
+  }
 }

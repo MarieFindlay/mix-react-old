@@ -16,7 +16,14 @@ const ServingsInputForm = ({
         value={servingsValue}
         onChange={onServingsUpdate}
       />
-      <button className="servingsSubmitButton" onClick={onServingsSubmit}>
+      <button
+        className={
+          servingsValue === 0
+            ? "servingsSubmitButtonDisabled"
+            : "servingsSubmitButton"
+        }
+        onClick={onServingsSubmit}
+      >
         + ADD
       </button>
     </form>

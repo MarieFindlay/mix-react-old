@@ -6,7 +6,7 @@ import Ingredients from "./Ingredients";
 
 import "./DetailsColumn.scss";
 
-const ShoppingListDetails = ({ shoppingList }) => {
+const ShoppingListDetails = ({ shoppingList, onClearShoppingList }) => {
   if (shoppingList) {
     return (
       <div className="shoppingListContainer">
@@ -18,14 +18,15 @@ const ShoppingListDetails = ({ shoppingList }) => {
             ingredients={shoppingList.ingredients}
             header={"YOU NEED"}
           />
-          <ClearShoppingListButton />
+          <ClearShoppingListButton onClearShoppingList={onClearShoppingList} />
         </div>
       </div>
     );
   }
   return (
     <p className="shoppingListEmptyText">
-      You shopping list is empty! Choose cocktails to add them to your list
+      You shopping list is empty! <br /> <br /> Choose your favourites from All
+      Cocktails and add them to your list.
     </p>
   );
 };
