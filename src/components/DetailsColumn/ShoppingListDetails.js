@@ -25,8 +25,8 @@ const ShoppingListDetails = ({ shoppingList, onClearShoppingList }) => {
   }
   return (
     <p className="shoppingListEmptyText">
-      You shopping list is empty! <br /> <br /> Choose your favourites from All
-      Cocktails and add them to your list.
+      You shopping list is empty. <br /> <br /> First choose your cocktails,
+      then come back to Shop and we'll tell you what you need!
     </p>
   );
 };

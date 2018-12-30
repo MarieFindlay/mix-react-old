@@ -1,4 +1,7 @@
 import React from "react";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import { views } from "../../actions/actions";
 
 import SelectedCocktailDetails from "./SelectedCocktailDetails";
 import ShoppingListDetails from "./ShoppingListDetails";
@@ -6,7 +9,7 @@ import ShoppingListDetails from "./ShoppingListDetails";
 import "./DetailsColumn.scss";
 
 const DetailsColumn = ({
-  columnView,
+  view,
   shoppingList,
   selectedCocktail,
   servingsValue,
@@ -14,7 +17,8 @@ const DetailsColumn = ({
   onServingsSubmit,
   onClearShoppingList
 }) => {
-  return columnView === 2 ? (
+  console.log(view);
+  return view === views.SHOPPING_LIST ? (
     <div className="detailsColumn">
       <ShoppingListDetails
         shoppingList={shoppingList}
@@ -28,11 +32,20 @@ const DetailsColumn = ({
         servingsValue={servingsValue}
         onServingsUpdate={onServingsUpdate}
         onServingsSubmit={onServingsSubmit}
-        columnView={columnView}
+        columnView={view}
         shoppingList={shoppingList}
       />
     </div>
   );
 };
+DetailsColumn.propTypes = {
+  view: PropTypes.string.isRequired
+};
 
-export default DetailsColumn;
+const mapStateToProps = (state, ownProps) => ({
+  view: state.view
+});
+
+const DetailsColumnWrapper = connect(mapStateToProps)(DetailsColumn);
+
+export default DetailsColumnWrapper;

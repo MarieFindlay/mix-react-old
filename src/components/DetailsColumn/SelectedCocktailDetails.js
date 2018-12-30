@@ -38,25 +38,29 @@ const SelectedCocktailDetails = ({
   } else if (columnView === 1) {
     return (
       <p className="noCocktailSelectedText">
+        Welcome to Mix, your cocktail party pal.
+        <br />
+        <br />
         Choose a cocktail to view its recipe and add ingredients to your
         Shopping List.
         <br />
         <br />
-        When you're ready to mix, head to My Cocktails to view your saved
-        recipes!
+        Visit Shop to view your Shopping List.
+        <br />
+        <br />
+        Head to Mix to view your saved recipes and start mixing!
       </p>
     );
   } else if (shoppingList === null || shoppingList === []) {
     return (
       <p className="noCocktailSelectedText">
-        Add your favourites from All Cocktails, then view your instructions
-        here.
+        First choose your cocktails, then view your saved recipes here.
       </p>
     );
   } else {
     return (
       <p className="noCocktailSelectedText">
-        Select a cocktail to view your instructions.
+        Select a cocktail to view its recipe.
       </p>
     );
   }

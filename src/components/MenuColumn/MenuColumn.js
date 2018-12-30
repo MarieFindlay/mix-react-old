@@ -1,45 +1,69 @@
 import React from "react";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
 
 import NavBar from "./NavBar";
 import SearchInput from "./SearchInput";
 import CocktailsList from "./CocktailsList";
 import PreviousNextButton from "./PreviousNextButton";
 
+import cocktails from "../../cocktails";
+
+import { views } from "../../actions/actions";
+
 import "./MenuColumn.scss";
 
-class MenuColumn extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
-  render() {
-    return (
-      <div className="cocktailsColumn">
-        <NavBar
-          onMenuOption1Click={this.props.onMenuOption1Click}
-          onMenuOption2Click={this.props.onMenuOption2Click}
-          onMenuOption3Click={this.props.onMenuOption3Click}
-          columnView={this.props.columnView}
-        />
-        {(this.props.columnView === 1 || this.props.columnView === 3) && (
-          <>
-            <SearchInput onSearchUpdate={this.props.onSearchUpdate} />
-            <CocktailsList
-              cocktails={this.props.cocktails}
-              onCocktailClick={this.props.onCocktailClick}
-              selectedCocktail={this.props.selectedCocktail}
-            />
-            <PreviousNextButton
-              onNextButtonClick={this.props.onNextButtonClick}
-              onPrevButtonClick={this.props.onPrevButtonClick}
-              currentPage={this.props.currentPage}
-              numberOfPages={this.props.numberOfPages}
-            />
-          </>
-        )}
-      </div>
-    );
-  }
-}
+const MenuColumn = ({
+  view,
+  onSearchUpdate,
+  selectedCocktail,
+  onCocktailClick,
+  onNextButtonClick,
+  onPrevButtonClick,
+  numberOfPages,
+  currentPage
+}) => {
+  return (
+    <div className="cocktailsColumn">
+      <NavBar
+        options={[
+          views.CHOOSE_COCKTAILS,
+          views.SHOPPING_LIST,
+          views.SAVED_RECIPES
+        ]}
+      />
+      {(view === views.CHOOSE_COCKTAILS || view === views.SAVED_RECIPES) && (
+        <>
+          <SearchInput onSearchUpdate={onSearchUpdate} />
+          <CocktailsList
+            cocktails={cocktails}
+            onCocktailClick={onCocktailClick}
+            selectedCocktail={selectedCocktail}
+          />
+          <PreviousNextButton
+            onNextButtonClick={onNextButtonClick}
+            onPrevButtonClick={onPrevButtonClick}
+            currentPage={currentPage}
+            numberOfPages={numberOfPages}
+          />
+        </>
+      )}
+    </div>
+  );
+};
+MenuColumn.propTypes = {
+  view: PropTypes.string.isRequired
+};
 
-export default MenuColumn;
+const mapStateToProps = (state, ownProps) => {
+  return {
+    view: state.view
+  };
+};
+
+const MenuColumnWrapper = connect(
+  mapStateToProps,
+  null
+)(MenuColumn);
+
+export default MenuColumnWrapper;

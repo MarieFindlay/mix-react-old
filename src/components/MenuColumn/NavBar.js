@@ -1,41 +1,61 @@
 import React from "react";
+import PropTypes from "prop-types";
+import { selectView } from "../../actions/actions";
+import { connect } from "react-redux";
 
 import "./MenuColumn.scss";
 
-const NavBar = ({
-  onMenuOption1Click,
-  onMenuOption2Click,
-  onMenuOption3Click,
-  columnView
-}) => {
+const NavMenu = ({ onClick, view, options }) => {
   return (
     <div className="NavBarContainer">
       <h2
-        onClick={onMenuOption1Click}
+        onClick={() => onClick(options[0])}
         className={
-          columnView === 1 ? "navHeaderSelected" : "navHeaderUnselected"
+          view === options[0] ? "navHeaderSelected" : "navHeaderUnselected"
         }
       >
-        ALL COCKTAILS
+        CHOOSE
       </h2>
       <h2
-        onClick={onMenuOption2Click}
+        onClick={() => onClick(options[1])}
         className={
-          columnView === 2 ? "navHeaderSelected" : "navHeaderUnselected"
+          view === options[1] ? "navHeaderSelected" : "navHeaderUnselected"
         }
       >
-        SHOPPING LIST
+        SHOP
       </h2>
       <h2
-        onClick={onMenuOption3Click}
+        onClick={() => onClick(options[2])}
         className={
-          columnView === 3 ? "navHeaderSelected" : "navHeaderUnselected"
+          view === options[2] ? "navHeaderSelected" : "navHeaderUnselected"
         }
       >
-        MY COCKTAILS
+        MIX
       </h2>
     </div>
   );
 };
+NavMenu.propTypes = {
+  onClick: PropTypes.func.isRequired
+};
+
+const mapStateToProps = (state, ownProps) => {
+  return {
+    view: state.view
+  };
+};
+
+const mapDispatchToProps = (dispatch, ownProps) => {
+  return {
+    onClick: option => {
+      dispatch(selectView(option));
+    }
+  };
+};
+
+const NavBar = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(NavMenu);
 
 export default NavBar;
