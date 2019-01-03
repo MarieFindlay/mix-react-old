@@ -4,10 +4,12 @@ import PropTypes from "prop-types";
 
 import NavBar from "./NavBar";
 import SearchInput from "./SearchInput";
-import CocktailsList from "./CocktailsList";
+import MenuList from "./MenuList";
 import PreviousNextButton from "./PreviousNextButton";
 
-import cocktails from "../../cocktails";
+import { cocktailsOnCurrentPage } from "../../constants/pagination";
+import { filterCocktails } from "../../functions/functions";
+import { initialCocktails } from "../../constants/cocktails";
 
 import { views } from "../../actions/actions";
 
@@ -15,36 +17,22 @@ import "./MenuColumn.scss";
 
 const MenuColumn = ({
   view,
-  onSearchUpdate,
   selectedCocktail,
   onCocktailClick,
-  onNextButtonClick,
-  onPrevButtonClick,
-  numberOfPages,
-  currentPage
+  currentPage,
+  shoppingList,
+  initialCocktails
 }) => {
   return (
     <div className="cocktailsColumn">
-      <NavBar
-        options={[
-          views.CHOOSE_COCKTAILS,
-          views.SHOPPING_LIST,
-          views.SAVED_RECIPES
-        ]}
-      />
+      <NavBar />
       {(view === views.CHOOSE_COCKTAILS || view === views.SAVED_RECIPES) && (
         <>
-          <SearchInput onSearchUpdate={onSearchUpdate} />
-          <CocktailsList
-            cocktails={cocktails}
-            onCocktailClick={onCocktailClick}
-            selectedCocktail={selectedCocktail}
-          />
+          <SearchInput />
+          <MenuList />
           <PreviousNextButton
-            onNextButtonClick={onNextButtonClick}
-            onPrevButtonClick={onPrevButtonClick}
-            currentPage={currentPage}
-            numberOfPages={numberOfPages}
+            shoppingList={shoppingList}
+            cocktails={initialCocktails}
           />
         </>
       )}
@@ -57,13 +45,12 @@ MenuColumn.propTypes = {
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    view: state.view
+    view: state.view,
+    currentPage: state.currentPage,
+    cocktails: filterCocktails(initialCocktails, state.searchInputValue)
   };
 };
 
-const MenuColumnWrapper = connect(
-  mapStateToProps,
-  null
-)(MenuColumn);
+const MenuColumnContainer = connect(mapStateToProps)(MenuColumn);
 
-export default MenuColumnWrapper;
+export default MenuColumnContainer;

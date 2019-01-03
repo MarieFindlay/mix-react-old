@@ -7,7 +7,11 @@ import rootReducer from "./reducers/reducers";
 import { Provider } from "react-redux";
 import { devToolsEnhancer } from "redux-devtools-extension";
 
+import cocktails from "./constants/cocktails";
+
 import App from "./components/App";
+
+import { cocktailsPerPage } from "./constants/pagination";
 
 const store = createStore(rootReducer, devToolsEnhancer());
 

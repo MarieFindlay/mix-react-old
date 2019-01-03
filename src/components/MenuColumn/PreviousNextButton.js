@@ -1,31 +1,62 @@
 import React from "react";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
 
 import "./MenuColumn.scss";
 
-const PreviousNextButton = ({
-  onPrevButtonClick,
-  onNextButtonClick,
+import { numberOfPages } from "../../constants/pagination";
+import { updateCurrentPage } from "../../actions/actions";
+import { initialCocktails } from "../../constants/cocktails";
+
+const PrevNextButton = ({
   currentPage,
-  numberOfPages
+  shoppingList,
+  view,
+  cocktails,
+  onClick
 }) => {
   return (
     <div className="prevNextButtonContainer">
       <button
-        onClick={onPrevButtonClick}
+        onClick={() => onClick(true)}
         className="prevButton"
-        disabled={currentPage === 0 ? true : false}
+        disabled={currentPage === 0}
       >
         PREV
       </button>
       <button
-        onClick={onNextButtonClick}
+        onClick={() => onClick(false)}
         className="nextButton"
-        disabled={currentPage === numberOfPages() ? true : false}
+        disabled={currentPage === numberOfPages(view, cocktails, shoppingList)}
       >
         NEXT
       </button>
     </div>
   );
 };
+PrevNextButton.propTypes = {
+  onClick: PropTypes.func.isRequired
+};
 
-export default PreviousNextButton;
+const mapStateToProps = (state, ownProps) => {
+  return {
+    currentPage: state.currentPage,
+    view: state.view,
+    cocktails: initialCocktails
+  };
+};
+
+const mapDispatchToProps = (dispatch, ownProps) => {
+  return {
+    onClick: requestIsPrevious => {
+      dispatch(updateCurrentPage(requestIsPrevious));
+    }
+  };
+};
+
+const prevNextButtonContainer = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(PrevNextButton);
+
+export default prevNextButtonContainer;

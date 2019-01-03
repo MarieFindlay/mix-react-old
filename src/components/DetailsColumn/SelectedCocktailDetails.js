@@ -6,15 +6,20 @@ import ServingsInputForm from "./ServingsInputForm";
 
 import "./DetailsColumn.scss";
 
+import { initialCocktails } from "../../constants/cocktails";
+
 const SelectedCocktailDetails = ({
-  selectedCocktail,
+  selectedCocktailId,
   servingsValue,
   onServingsUpdate,
   onServingsSubmit,
   columnView,
   shoppingList
 }) => {
-  if (selectedCocktail) {
+  if (selectedCocktailId) {
+    const selectedCocktail = initialCocktails.find(
+      cocktail => selectedCocktailId === cocktail.id
+    );
     return (
       <div className="selectedCocktailContainer">
         <h2 className="selectedCocktailHeader">

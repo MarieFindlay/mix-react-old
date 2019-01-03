@@ -1,11 +1,19 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { selectView } from "../../actions/actions";
 import { connect } from "react-redux";
+import { selectView } from "../../actions/actions";
+
+import { views } from "../../../src/actions/actions";
+import { navBarHeaders } from "../../constants/menuText";
 
 import "./MenuColumn.scss";
 
-const NavMenu = ({ onClick, view, options }) => {
+const NavBar = ({ onClick, view }) => {
+  const options = [
+    views.CHOOSE_COCKTAILS,
+    views.SHOPPING_LIST,
+    views.SAVED_RECIPES
+  ];
   return (
     <div className="NavBarContainer">
       <h2
@@ -14,7 +22,7 @@ const NavMenu = ({ onClick, view, options }) => {
           view === options[0] ? "navHeaderSelected" : "navHeaderUnselected"
         }
       >
-        CHOOSE
+        {navBarHeaders[0]}
       </h2>
       <h2
         onClick={() => onClick(options[1])}
@@ -22,7 +30,7 @@ const NavMenu = ({ onClick, view, options }) => {
           view === options[1] ? "navHeaderSelected" : "navHeaderUnselected"
         }
       >
-        SHOP
+        {navBarHeaders[1]}
       </h2>
       <h2
         onClick={() => onClick(options[2])}
@@ -30,12 +38,12 @@ const NavMenu = ({ onClick, view, options }) => {
           view === options[2] ? "navHeaderSelected" : "navHeaderUnselected"
         }
       >
-        MIX
+        {navBarHeaders[2]}
       </h2>
     </div>
   );
 };
-NavMenu.propTypes = {
+NavBar.propTypes = {
   onClick: PropTypes.func.isRequired
 };
 
@@ -53,9 +61,9 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   };
 };
 
-const NavBar = connect(
+const NavBarContainer = connect(
   mapStateToProps,
   mapDispatchToProps
-)(NavMenu);
+)(NavBar);
 
-export default NavBar;
+export default NavBarContainer;

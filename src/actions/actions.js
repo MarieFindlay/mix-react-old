@@ -1,6 +1,12 @@
 /* Action Types */
 
-export const SELECT_VIEW = "SELECT_VIEW";
+export const actionTypes = {
+  SELECT_VIEW: "SELECT_VIEW",
+  UPDATE_CURRENT_PAGE: "UPDATE_CURRENT_PAGE",
+  UPDATE_SEARCH_INPUT_VALUE: "UPDATE_SEARCH_INPUT_VALUE",
+  SELECT_COCKTAIL: "SELECT_COCKTAIL",
+  ADD_TO_SHOPPING_LIST: "ADD_TO_SHOPPING_LIST"
+};
 
 /* Other Constants */
 
@@ -12,9 +18,38 @@ export const views = {
 
 /* Action Creators */
 
-export function selectView(view) {
+export const selectView = view => {
   return {
-    type: SELECT_VIEW,
-    view: view
+    type: actionTypes.SELECT_VIEW,
+    view
   };
-}
+};
+
+export const updateCurrentPage = requestIsPrevious => {
+  return {
+    type: actionTypes.UPDATE_CURRENT_PAGE,
+    requestIsPrevious
+  };
+};
+
+export const updateSearchInputValue = inputValue => {
+  return {
+    type: actionTypes.UPDATE_SEARCH_INPUT_VALUE,
+    inputValue
+  };
+};
+
+export const selectCocktail = id => {
+  return {
+    type: actionTypes.SELECT_COCKTAIL,
+    id
+  };
+};
+
+export const addToShoppingList = (id, servings) => {
+  return {
+    type: actionTypes.ADD_TO_SHOPPING_LIST,
+    id,
+    servings
+  };
+};

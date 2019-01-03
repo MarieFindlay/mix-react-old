@@ -11,13 +11,12 @@ import "./DetailsColumn.scss";
 const DetailsColumn = ({
   view,
   shoppingList,
-  selectedCocktail,
+  selectedCocktailId,
   servingsValue,
   onServingsUpdate,
   onServingsSubmit,
   onClearShoppingList
 }) => {
-  console.log(view);
   return view === views.SHOPPING_LIST ? (
     <div className="detailsColumn">
       <ShoppingListDetails
@@ -28,7 +27,7 @@ const DetailsColumn = ({
   ) : (
     <div className="detailsColumn">
       <SelectedCocktailDetails
-        selectedCocktail={selectedCocktail}
+        selectedCocktailId={selectedCocktailId}
         servingsValue={servingsValue}
         onServingsUpdate={onServingsUpdate}
         onServingsSubmit={onServingsSubmit}
@@ -43,7 +42,8 @@ DetailsColumn.propTypes = {
 };
 
 const mapStateToProps = (state, ownProps) => ({
-  view: state.view
+  view: state.view,
+  selectedCocktailId: state.selectedCocktailId
 });
 
 const DetailsColumnWrapper = connect(mapStateToProps)(DetailsColumn);
