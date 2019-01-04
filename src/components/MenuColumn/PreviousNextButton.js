@@ -6,15 +6,8 @@ import "./MenuColumn.scss";
 
 import { numberOfPages } from "../../constants/pagination";
 import { updateCurrentPage } from "../../actions/actions";
-import { initialCocktails } from "../../constants/cocktails";
 
-const PrevNextButton = ({
-  currentPage,
-  shoppingList,
-  view,
-  cocktails,
-  onClick
-}) => {
+const PrevNextButton = ({ currentPage, view, cocktails, onClick }) => {
   return (
     <div className="prevNextButtonContainer">
       <button
@@ -27,7 +20,7 @@ const PrevNextButton = ({
       <button
         onClick={() => onClick(false)}
         className="nextButton"
-        disabled={currentPage === numberOfPages(view, cocktails, shoppingList)}
+        disabled={currentPage === numberOfPages(cocktails)}
       >
         NEXT
       </button>
@@ -41,8 +34,7 @@ PrevNextButton.propTypes = {
 const mapStateToProps = (state, ownProps) => {
   return {
     currentPage: state.currentPage,
-    view: state.view,
-    cocktails: initialCocktails
+    view: state.view
   };
 };
 

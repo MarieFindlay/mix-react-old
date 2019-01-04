@@ -1,55 +1,63 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import {
-  addToShoppingList,
-  updateServingsInputValue
-} from "../../actions/actions";
+import { addToShoppingList } from "../../actions/actions";
 
 import "./DetailsColumn.scss";
 
-const inputForm = ({ selectedCocktailId, onChange, inputValue, onClick }) => {
-  return (
-    <form className="servingsForm">
-      <input
-        className="servingsInput"
-        type="number"
-        placeholder="Servings"
-        value={inputValue}
-        onChange={e => onChange(parseInt(e.target.value))}
-      />
-      <button
-        className={
-          inputValue === 0
-            ? "servingsSubmitButtonDisabled"
-            : "servingsSubmitButton"
-        }
-        onClick={e => onClick(e, inputValue, selectedCocktailId)}
-      >
-        + ADD
-      </button>
-    </form>
-  );
-};
+class inputForm extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      inputValue: ""
+    };
+  }
+  render() {
+    const selectedItemId = this.props.selectedItemId;
+    const inputValue = this.state.inputValue;
+    const onClick = this.props.onClick;
+    return (
+      <form className="servingsForm">
+        <input
+          className="servingsInput"
+          type="number"
+          placeholder="Servings"
+          value={inputValue}
+          onChange={e =>
+            this.setState({ inputValue: parseInt(e.target.value) })
+          }
+        />
+        <button
+          className={
+            inputValue === 0
+              ? "servingsSubmitButtonDisabled"
+              : "servingsSubmitButton"
+          }
+          onClick={e => onClick(e, inputValue, selectedItemId)}
+        >
+          + ADD
+        </button>
+      </form>
+    );
+  }
+}
 inputForm.propTypes = {
-  selectedCocktailId: PropTypes.number
+  selectedItemId: PropTypes.number,
+  onClick: PropTypes.func.isRequired
 };
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    selectedCocktailId: state.selectedCocktailId,
-    inputValue: state.servingsInputValue
+    selectedItemId: state.selectedCocktailId
   };
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    onChange: inputValue => {
-      dispatch(updateServingsInputValue(inputValue));
-    },
-    onClick: (event, inputValue, selectedCocktailId) => {
+    onClick: (event, inputValue, selectedItemId) => {
       event.preventDefault();
-      dispatch(addToShoppingList(inputValue, selectedCocktailId));
+      dispatch(addToShoppingList(inputValue, selectedItemId));
+      alert("Added to shopping list!");
     }
   };
 };

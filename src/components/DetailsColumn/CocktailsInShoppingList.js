@@ -2,17 +2,22 @@ import React from "react";
 
 import "./DetailsColumn.scss";
 
-const CocktailsInShoppingList = ({ shoppingList }) => {
-  const listItems = shoppingList.cocktails.map((cocktail, index) => (
-    <CocktailsInShoppingListItem key={index} cocktail={cocktail} />
-  ));
+const CocktailsInShoppingList = ({ cocktailsInShoppingList }) => {
+  const listItems = cocktailsInShoppingList.map(
+    (cocktailQuantityPair, index) => (
+      <CocktailsInShoppingListItem
+        key={index}
+        cocktailQuantityPair={cocktailQuantityPair}
+      />
+    )
+  );
   return <ul className="cocktailsInShoppingList">{listItems}</ul>;
 };
 
-const CocktailsInShoppingListItem = ({ cocktail }) => {
+const CocktailsInShoppingListItem = ({ cocktailQuantityPair }) => {
   return (
     <div>
-      <li>{cocktail.amount + " x " + cocktail.name}</li>
+      <li>{cocktailQuantityPair[1] + " x " + cocktailQuantityPair[0].name}</li>
     </div>
   );
 };

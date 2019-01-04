@@ -2,7 +2,6 @@ import React from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { filterCocktails } from "../../functions/functions";
-import { initialCocktails } from "../../constants/cocktails";
 import { cocktailsOnCurrentPage } from "../../constants/pagination";
 import { selectCocktail } from "../../actions/actions";
 
@@ -25,7 +24,17 @@ const MenuListItem = ({ selectedItemId, item, onClick }) => {
   );
 };
 
-const MenuList = ({ menuItems, selectedItemId, onClick }) => {
+const MenuList = ({
+  cocktails,
+  selectedItemId,
+  onClick,
+  currentPage,
+  searchInputValue
+}) => {
+  const menuItems = cocktailsOnCurrentPage(
+    currentPage,
+    filterCocktails(cocktails, searchInputValue)
+  );
   const listItems = menuItems.map(item => (
     <MenuListItem
       key={item.id}
@@ -37,7 +46,6 @@ const MenuList = ({ menuItems, selectedItemId, onClick }) => {
   return <ul className="cocktailList">{listItems}</ul>;
 };
 MenuList.propTypes = {
-  menuItems: PropTypes.array.isRequired,
   selectedItemId: PropTypes.number,
   onClick: PropTypes.func.isRequired
 };
@@ -45,10 +53,8 @@ MenuList.propTypes = {
 const mapStateToProps = (state, ownProps) => {
   return {
     selectedItemId: state.selectedCocktailId,
-    menuItems: cocktailsOnCurrentPage(
-      state.currentPage,
-      filterCocktails(initialCocktails, state.searchInputValue)
-    )
+    searchInputValue: state.searchInputValue,
+    currentPage: state.currentPage
   };
 };
 

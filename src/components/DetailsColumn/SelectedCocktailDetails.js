@@ -8,12 +8,11 @@ import "./DetailsColumn.scss";
 
 import { initialCocktails } from "../../constants/cocktails";
 
+import { views } from "../../actions/actions";
+
 const SelectedCocktailDetails = ({
   selectedCocktailId,
-  servingsValue,
-  onServingsUpdate,
-  onServingsSubmit,
-  columnView,
+  view,
   shoppingList
 }) => {
   if (selectedCocktailId) {
@@ -26,37 +25,35 @@ const SelectedCocktailDetails = ({
           {selectedCocktail.name.toUpperCase()}
         </h2>
         <div className="selectedCocktailInnerContainer">
-          <ServingsInputForm
-            servingsValue={servingsValue}
-            onServingsUpdate={onServingsUpdate}
-            onServingsSubmit={onServingsSubmit}
-          />
+          <ServingsInputForm />
           <Ingredients
-            selectedCocktail={selectedCocktail}
             ingredients={selectedCocktail.ingredients}
             header={"Ingredients"}
           />
-          <Instructions selectedCocktail={selectedCocktail} />
+          <Instructions
+            selectedCocktail={selectedCocktail}
+            header={"Instructions"}
+          />
         </div>
       </div>
     );
-  } else if (columnView === 1) {
+  } else if (view === views.CHOOSE_COCKTAILS) {
     return (
       <p className="noCocktailSelectedText">
-        Welcome to Mix, your cocktail party pal.
+        Welcome to Mix, your cocktail party planner.
         <br />
         <br />
-        Choose a cocktail to view its recipe and add ingredients to your
-        Shopping List.
+        To start, choose your cocktails and add ingredients to your shopping
+        list.
         <br />
         <br />
-        Visit Shop to view your Shopping List.
+        Go to Shop to view your shopping list.
         <br />
         <br />
-        Head to Mix to view your saved recipes and start mixing!
+        Then head to Mix to view saved recipes and start making your cocktails!
       </p>
     );
-  } else if (shoppingList === null || shoppingList === []) {
+  } else if (Object.keys(shoppingList).length === 0) {
     return (
       <p className="noCocktailSelectedText">
         First choose your cocktails, then view your saved recipes here.
@@ -65,7 +62,7 @@ const SelectedCocktailDetails = ({
   } else {
     return (
       <p className="noCocktailSelectedText">
-        Select a cocktail to view its recipe.
+        Select one of your saved cocktails to view its recipe.
       </p>
     );
   }

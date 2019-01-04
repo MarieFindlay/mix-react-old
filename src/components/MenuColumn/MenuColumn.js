@@ -7,33 +7,23 @@ import SearchInput from "./SearchInput";
 import MenuList from "./MenuList";
 import PreviousNextButton from "./PreviousNextButton";
 
-import { cocktailsOnCurrentPage } from "../../constants/pagination";
-import { filterCocktails } from "../../functions/functions";
+import { calculateShoppingListCocktails } from "../../functions/functions";
 import { initialCocktails } from "../../constants/cocktails";
 
 import { views } from "../../actions/actions";
 
 import "./MenuColumn.scss";
 
-const MenuColumn = ({
-  view,
-  selectedCocktail,
-  onCocktailClick,
-  currentPage,
-  shoppingList,
-  initialCocktails
-}) => {
+const MenuColumn = ({ view, cocktailsToDisplay }) => {
   return (
     <div className="cocktailsColumn">
       <NavBar />
-      {(view === views.CHOOSE_COCKTAILS || view === views.SAVED_RECIPES) && (
+      {(view === views.CHOOSE_COCKTAILS ||
+        (view === views.SAVED_RECIPES && cocktailsToDisplay.length > 0)) && (
         <>
-          <SearchInput />
-          <MenuList />
-          <PreviousNextButton
-            shoppingList={shoppingList}
-            cocktails={initialCocktails}
-          />
+          <SearchInput cocktails={cocktailsToDisplay} />
+          <MenuList cocktails={cocktailsToDisplay} />
+          <PreviousNextButton cocktails={cocktailsToDisplay} />
         </>
       )}
     </div>
@@ -46,8 +36,10 @@ MenuColumn.propTypes = {
 const mapStateToProps = (state, ownProps) => {
   return {
     view: state.view,
-    currentPage: state.currentPage,
-    cocktails: filterCocktails(initialCocktails, state.searchInputValue)
+    cocktailsToDisplay:
+      state.view === views.CHOOSE_COCKTAILS
+        ? initialCocktails
+        : calculateShoppingListCocktails(initialCocktails, state.shoppingList)
   };
 };
 

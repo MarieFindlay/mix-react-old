@@ -52,16 +52,12 @@
   font-size: 1.1em;
 }
 
-.searchInput ::placeholder {
-  color: $lilac;
-}
-
 .cocktailList {
   line-height: 1.8em;
   list-style-type: none;
   margin-bottom: 2em;
   padding: 0;
-  height: 420px;
+  height: 480px;
   @include columnPadding;
 }
 

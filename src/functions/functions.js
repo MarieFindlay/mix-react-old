@@ -67,3 +67,9 @@ export const initialiseShoppingListProperty = cocktails => {
     };
   });
 };
+
+export const calculateShoppingListCocktails = (allCocktails, shoppingList) => {
+  return allCocktails.filter(cocktail =>
+    shoppingList.hasOwnProperty(cocktail.id)
+  );
+};

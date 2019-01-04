@@ -33,15 +33,8 @@ const selectedCocktailId = (state = null, action) => {
   switch (action.type) {
     case actionTypes.SELECT_COCKTAIL:
       return action.id;
-    default:
-      return state;
-  }
-};
-
-const servingsInputValue = (state = "", action) => {
-  switch (action.type) {
-    case actionTypes.UPDATE_SERVINGS_INPUT_VALUE:
-      return action.inputValue;
+    case actionTypes.SELECT_VIEW:
+      return null;
     default:
       return state;
   }
@@ -64,6 +57,8 @@ const shoppingList = (state = {}, action) => {
         }
       }
       return state;
+    case actionTypes.CLEAR_SHOPPING_LIST:
+      return {};
     default:
       return state;
   }
@@ -74,7 +69,6 @@ const rootReducer = combineReducers({
   currentPage,
   searchInputValue,
   selectedCocktailId,
-  servingsInputValue,
   shoppingList
 });
 
