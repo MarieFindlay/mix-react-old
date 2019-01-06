@@ -47,7 +47,7 @@ const shoppingList = (state = {}, action) => {
         if (state.hasOwnProperty(action.id)) {
           return {
             ...state,
-            [action.id]: action.id + action.servings
+            [action.id]: state[action.id] + action.servings
           };
         } else {
           return {
