@@ -1,6 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
+import classNames from "classnames";
+
 import { filterCocktails } from "../../functions/functions";
 import { cocktailsOnCurrentPage } from "../../constants/pagination";
 import { selectCocktail } from "../../actions/actions";
@@ -11,11 +13,10 @@ const MenuListItem = ({ selectedItemId, item, onClick }) => {
   return (
     <div>
       <li
-        className={
-          selectedItemId === item.id
-            ? "cocktailListItemSelected"
-            : "cocktailListItemUnselected"
-        }
+        className={classNames("cocktailListItem", {
+          cocktailListItemSelected: selectedItemId === item.id,
+          cocktailListItemUnselected: selectedItemId !== item.id
+        })}
         onClick={() => onClick(item.id)}
       >
         {item.name}
@@ -46,8 +47,11 @@ const MenuList = ({
   return <ul className="cocktailList">{listItems}</ul>;
 };
 MenuList.propTypes = {
+  cocktails: PropTypes.array.isRequired,
   selectedItemId: PropTypes.number,
-  onClick: PropTypes.func.isRequired
+  onClick: PropTypes.func.isRequired,
+  currentPage: PropTypes.number.isRequired,
+  searchInputValue: PropTypes.string
 };
 
 const mapStateToProps = (state, ownProps) => {

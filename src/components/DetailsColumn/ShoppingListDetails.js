@@ -59,6 +59,10 @@ const ShoppingListDetails = ({ cocktailsInShoppingList, onClick }) => {
     </div>
   );
 };
+ShoppingListDetails.propTypes = {
+  cocktailsInShoppingList: PropTypes.object,
+  onClick: PropTypes.func.isRequired
+};
 
 const mapStateToProps = (state, ownProps) => {
   return {

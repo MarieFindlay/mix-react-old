@@ -4,10 +4,14 @@ import { connect } from "react-redux";
 
 import "./MenuColumn.scss";
 
-import { numberOfPages } from "../../constants/pagination";
 import { updateCurrentPage } from "../../actions/actions";
 
-const PrevNextButton = ({ currentPage, view, cocktails, onClick }) => {
+const PrevNextButton = ({
+  currentPage,
+  selectedView,
+  numberOfPages,
+  onClick
+}) => {
   return (
     <div className="prevNextButtonContainer">
       <button
@@ -20,7 +24,7 @@ const PrevNextButton = ({ currentPage, view, cocktails, onClick }) => {
       <button
         onClick={() => onClick(false)}
         className="nextButton"
-        disabled={currentPage === numberOfPages(cocktails)}
+        disabled={currentPage === numberOfPages}
       >
         NEXT
       </button>
@@ -28,13 +32,16 @@ const PrevNextButton = ({ currentPage, view, cocktails, onClick }) => {
   );
 };
 PrevNextButton.propTypes = {
+  currentPage: PropTypes.number.isRequired,
+  selectedView: PropTypes.object.isRequired,
+  numberOfPages: PropTypes.number.isRequired,
   onClick: PropTypes.func.isRequired
 };
 
 const mapStateToProps = (state, ownProps) => {
   return {
     currentPage: state.currentPage,
-    view: state.view
+    selectedView: state.selectedView
   };
 };
 

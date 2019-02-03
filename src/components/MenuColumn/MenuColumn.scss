@@ -35,7 +35,7 @@
   font-size: 2.05em;
   color: $lilac;
   padding-bottom: 0.1em;
-  cursor: mouse;
+  cursor: default;
   padding-left: 0.5em;
   padding-top: 0.05em;
 }
@@ -61,19 +61,18 @@
   @include columnPadding;
 }
 
-.cocktailListItemUnselected {
+.cocktailListItem {
+  padding-left: 1em;
   color: $darkLilac;
   cursor: pointer;
   font-size: 1.1em;
-  padding-left: 1em;
 }
 
 .cocktailListItemSelected {
-  cursor: mouse;
+  cursor: default;
   color: $lilac;
   font-size: 1.15em;
   margin-top: -0.06em;
-  padding-left: 1em;
 }
 
 .prevNextButtonContainer {

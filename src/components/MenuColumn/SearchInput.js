@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import "./MenuColumn.scss";
 import { updateSearchInputValue } from "../../actions/actions";
 
-const SearchInput = ({ onChange, searchInputValue, cocktails }) => {
+const SearchInput = ({ onChange, searchInputValue, disabled }) => {
   return (
     <input
       onChange={event => onChange(event.target.value)}
@@ -13,11 +13,12 @@ const SearchInput = ({ onChange, searchInputValue, cocktails }) => {
       className="searchInput"
       type="text"
       placeholder="Search"
-      disabled={cocktails.length === 0}
+      disabled={disabled}
     />
   );
 };
 SearchInput.propTypes = {
+  disabled: PropTypes.bool.isRequired,
   searchInputValue: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired
 };

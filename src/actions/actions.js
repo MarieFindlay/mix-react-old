@@ -5,7 +5,7 @@ export const actionTypes = {
   UPDATE_CURRENT_PAGE: "UPDATE_CURRENT_PAGE",
   UPDATE_SEARCH_INPUT_VALUE: "UPDATE_SEARCH_INPUT_VALUE",
   SELECT_COCKTAIL: "SELECT_COCKTAIL",
-  ADD_TO_SHOPPING_LIST: "ADD_TO_SHOPPING_LIST",
+  ADD_COCKTAIL_TO_SHOPPING_LIST: "ADD_COCKTAIL_TO_SHOPPING_LIST",
   CLEAR_SHOPPING_LIST: "CLEAR_SHOPPING_LIST"
 };
 
@@ -47,16 +47,14 @@ export const selectCocktail = id => {
   };
 };
 
-export const addToShoppingList = (servings, id) => {
+export const addCocktailToShoppingList = (servings, id) => {
   return {
-    type: actionTypes.ADD_TO_SHOPPING_LIST,
+    type: actionTypes.ADD_COCKTAIL_TO_SHOPPING_LIST,
     servings,
     id
   };
 };
 
-export const clearShoppingList = () => {
-  return {
-    type: actionTypes.CLEAR_SHOPPING_LIST
-  };
-};
+export const clearShoppingList = () => ({
+  type: actionTypes.CLEAR_SHOPPING_LIST
+});

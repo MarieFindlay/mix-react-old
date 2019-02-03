@@ -12,7 +12,7 @@ import { views } from "../../actions/actions";
 
 const SelectedCocktailDetails = ({
   selectedCocktailId,
-  view,
+  selectedView,
   shoppingList
 }) => {
   if (selectedCocktailId) {
@@ -37,7 +37,7 @@ const SelectedCocktailDetails = ({
         </div>
       </div>
     );
-  } else if (view === views.CHOOSE_COCKTAILS) {
+  } else if (selectedView === views.CHOOSE_COCKTAILS) {
     return (
       <p className="noCocktailSelectedText">
         Welcome to Mix, your cocktail party planner.

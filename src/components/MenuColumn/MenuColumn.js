@@ -9,35 +9,40 @@ import PreviousNextButton from "./PreviousNextButton";
 
 import { calculateShoppingListCocktails } from "../../functions/functions";
 import { initialCocktails } from "../../constants/cocktails";
+import { numberOfPages } from "../../constants/pagination";
 
 import { views } from "../../actions/actions";
 
 import "./MenuColumn.scss";
 
-const MenuColumn = ({ view, cocktailsToDisplay }) => {
+const MenuColumn = ({ selectedView, cocktailsToDisplay }) => {
   return (
     <div className="cocktailsColumn">
       <NavBar />
-      {(view === views.CHOOSE_COCKTAILS ||
-        (view === views.SAVED_RECIPES && cocktailsToDisplay.length > 0)) && (
+      {(selectedView === views.CHOOSE_COCKTAILS ||
+        (selectedView === views.SAVED_RECIPES &&
+          cocktailsToDisplay.length > 0)) && (
         <>
-          <SearchInput cocktails={cocktailsToDisplay} />
+          <SearchInput disabled={cocktailsToDisplay.length === 0} />
           <MenuList cocktails={cocktailsToDisplay} />
-          <PreviousNextButton cocktails={cocktailsToDisplay} />
+          <PreviousNextButton
+            numberOfPages={numberOfPages(cocktailsToDisplay)}
+          />
         </>
       )}
     </div>
   );
 };
 MenuColumn.propTypes = {
-  view: PropTypes.string.isRequired
+  selectedView: PropTypes.string.isRequired,
+  cocktailsToDisplay: PropTypes.array.isRequired
 };
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = state => {
   return {
-    view: state.view,
+    selectedView: state.selectedView,
     cocktailsToDisplay:
-      state.view === views.CHOOSE_COCKTAILS
+      state.selectedView === views.CHOOSE_COCKTAILS
         ? initialCocktails
         : calculateShoppingListCocktails(initialCocktails, state.shoppingList)
   };

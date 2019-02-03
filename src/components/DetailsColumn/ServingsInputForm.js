@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { addToShoppingList } from "../../actions/actions";
+import { addCocktailToShoppingList } from "../../actions/actions";
 
 import "./DetailsColumn.scss";
 
@@ -43,6 +43,7 @@ class inputForm extends React.Component {
 }
 inputForm.propTypes = {
   selectedItemId: PropTypes.number,
+  inputValue: PropTypes.string,
   onClick: PropTypes.func.isRequired
 };
 
@@ -56,7 +57,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     onClick: (event, inputValue, selectedItemId) => {
       event.preventDefault();
-      dispatch(addToShoppingList(inputValue, selectedItemId));
+      dispatch(addCocktailToShoppingList(inputValue, selectedItemId));
       alert("Added to shopping list!");
     }
   };

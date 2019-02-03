@@ -9,16 +9,17 @@ import ShoppingListDetailsContainer from "./ShoppingListDetails";
 import "./DetailsColumn.scss";
 
 const DetailsColumn = ({
-  view,
+  selectedView,
   shoppingList,
   selectedCocktailId,
   onClearShoppingList
 }) => {
-  return view === views.CHOOSE_COCKTAILS || view === views.SAVED_RECIPES ? (
+  return selectedView === views.CHOOSE_COCKTAILS ||
+    selectedView === views.SAVED_RECIPES ? (
     <div className="detailsColumn">
       <SelectedCocktailDetails
         selectedCocktailId={selectedCocktailId}
-        view={view}
+        selectedView={selectedView}
         shoppingList={shoppingList}
       />
     </div>
@@ -29,11 +30,14 @@ const DetailsColumn = ({
   );
 };
 DetailsColumn.propTypes = {
-  view: PropTypes.string.isRequired
+  selectedView: PropTypes.string.isRequired,
+  shoppingList: PropTypes.array.isRequired,
+  selectedCocktailId: PropTypes.number.isRequired,
+  onClearShoppingList: PropTypes.func.isRequired
 };
 
 const mapStateToProps = (state, ownProps) => ({
-  view: state.view,
+  selectedView: state.selectedView,
   selectedCocktailId: state.selectedCocktailId,
   shoppingList: state.shoppingList
 });

@@ -2,7 +2,7 @@ import { combineReducers } from "redux";
 
 import { views, actionTypes } from "../actions/actions";
 
-const view = (state = views.CHOOSE_COCKTAILS, action) => {
+const selectedView = (state = views.CHOOSE_COCKTAILS, action) => {
   switch (action.type) {
     case actionTypes.SELECT_VIEW:
       return action.view;
@@ -42,7 +42,7 @@ const selectedCocktailId = (state = null, action) => {
 
 const shoppingList = (state = {}, action) => {
   switch (action.type) {
-    case actionTypes.ADD_TO_SHOPPING_LIST:
+    case actionTypes.ADD_COCKTAIL_TO_SHOPPING_LIST:
       if (action.servings !== 0) {
         if (state.hasOwnProperty(action.id)) {
           return {
@@ -65,7 +65,7 @@ const shoppingList = (state = {}, action) => {
 };
 
 const rootReducer = combineReducers({
-  view,
+  selectedView,
   currentPage,
   searchInputValue,
   selectedCocktailId,

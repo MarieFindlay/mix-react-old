@@ -4,52 +4,53 @@ import { connect } from "react-redux";
 import { selectView } from "../../actions/actions";
 
 import { views } from "../../../src/actions/actions";
-import { navBarHeaders } from "../../constants/menuText";
 
 import "./MenuColumn.scss";
 
-const NavBar = ({ onClick, view }) => {
-  const options = [
-    views.CHOOSE_COCKTAILS,
-    views.SHOPPING_LIST,
-    views.SAVED_RECIPES
-  ];
+const navItems = [
+  {
+    view: views.CHOOSE_COCKTAILS,
+    label: "CHOOSE"
+  },
+  {
+    view: views.SHOPPING_LIST,
+    label: "SHOP"
+  },
+  {
+    view: views.SAVED_RECIPES,
+    label: "MIX"
+  }
+];
+
+const NavBar = ({ onClick, selectedView }) => {
   return (
     <div className="NavBarContainer">
-      <h2
-        onClick={() => onClick(options[0])}
-        className={
-          view === options[0] ? "navHeaderSelected" : "navHeaderUnselected"
-        }
-      >
-        {navBarHeaders[0]}
-      </h2>
-      <h2
-        onClick={() => onClick(options[1])}
-        className={
-          view === options[1] ? "navHeaderSelected" : "navHeaderUnselected"
-        }
-      >
-        {navBarHeaders[1]}
-      </h2>
-      <h2
-        onClick={() => onClick(options[2])}
-        className={
-          view === options[2] ? "navHeaderSelected" : "navHeaderUnselected"
-        }
-      >
-        {navBarHeaders[2]}
-      </h2>
+      {navItems.map(({ view: itemView, label }) => {
+        return (
+          <h2
+            key={label}
+            onClick={() => onClick(itemView)}
+            className={
+              selectedView === itemView
+                ? "navHeaderSelected"
+                : "navHeaderUnselected"
+            }
+          >
+            {label}
+          </h2>
+        );
+      })}
     </div>
   );
 };
 NavBar.propTypes = {
-  onClick: PropTypes.func.isRequired
+  onClick: PropTypes.func.isRequired,
+  selectedView: PropTypes.object.isRequired
 };
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    view: state.view
+    selectedView: state.selectedView
   };
 };
 
