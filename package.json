@@ -2,9 +2,11 @@
   "name": "mix",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://github.com/MarieFindlay/Mix-React",
   "dependencies": {
     "@babel/plugin-syntax-jsx": "^7.2.0",
     "classnames": "^2.2.6",
+    "gh-pages": "^2.0.1",
     "node-sass": "^4.11.0",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
@@ -16,6 +18,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "predeploy": "yarn run build",
+    "deploy": "gh-pages -b master -d build",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
